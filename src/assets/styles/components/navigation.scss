@@ -1,0 +1,23 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.nav{
+    background: $navBackground;
+    color: $NavColorText;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    left: -110%;
+    padding: 56px 48px;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 999px) {
+    .nav{
+        position: relative;
+        left: auto;
+        height: auto;
+        width: auto;
+    }
+}
