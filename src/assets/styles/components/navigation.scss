@@ -3,14 +3,99 @@
 
 .nav{
     background: $navBackground;
-    color: $NavColorText;
+    color: $navColorText;
     position: fixed;
     height: 100%;
-    width: 100%;
+    overflow: scroll;
+    //width: 100%;
+    min-width: 250px;
     max-width: 400px;
-    left: -110%;
+    gap: 60px;
+    //left: -110%;
+    left: 0;
     padding: 56px 48px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .name_nav{
+        font-size: 30px;
+        font-weight: 600;
+        font-style: italic;
+    }
+}
+
+.top_sec_nav{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.bottom_sec_nav{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .text_bottom{
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+.menu_nav{
+    li a{
+        font-size: 20px;
+        font-weight: 300;
+        color: $navColorText;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 10px 0;
+        display: inline-block;
+        position: relative;
+        &:before{
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: $mainGradient;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+        &:hover{
+            font-weight: 600;
+        }
+        &.active{
+            font-weight: 600;
+            &:before{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.social_network{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    li a{
+        display: inline-block;
+        transition: .3s;
+        svg{
+            fill: #ffffff;
+            width: 40px;
+            height: 40px;
+        }
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+}
+
+@media (any-hover: hover) {
+    .nav::-webkit-scrollbar {
+        width: 0;
+    }
 }
 
 @media screen and (min-width: 999px) {
@@ -19,5 +104,8 @@
         left: auto;
         height: auto;
         width: auto;
+    }
+    .top_sec_nav{
+        gap: 100px;
     }
 }

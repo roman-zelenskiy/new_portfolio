@@ -1,13 +1,11 @@
+<script setup lang="ts"></script>
+
 <template>
-$END$
+    <div class="pages_section">
+        <h1>hello</h1>
+    </div>
 </template>
 
-<script>
-export default {
-name: "PagesSection"
-}
-</script>
-
-<style scoped>
-
+<style lang="scss">
+    @import '../../assets/styles/components/pages_section.scss';
 </style>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
-    import Navigation from './components/Navigation.vue';
+    import Navigation from './components/Navigation/Navigation.vue';
+    import PagesSection from './components/PagesSection/PagesSection.vue';
 </script>
 
 <template>
     <div class="wrapper_app">
         <navigation />
-        <div class="pages_section">
-            <h1>hello</h1>
-        </div>
+        <pages-section />
     </div>
 </template>
 
