@@ -1,7 +1,7 @@
 <script setup lang="ts">
-    import GithubIcon from '../../assets/img/svg/GithubIcon.vue';
-    import InstagramIcon from '../../assets/img/svg/InstagramIcon.vue';
-    import LinkedinIcon from '../../assets/img/svg/LinkedinIcon.vue';
+    import GithubIcon from '../assets/img/svg/GithubIcon.vue';
+    import InstagramIcon from '../assets/img/svg/InstagramIcon.vue';
+    import LinkedinIcon from '../assets/img/svg/LinkedinIcon.vue';
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-    import Navigation from './components/Navigation/Navigation.vue';
-    import PagesSection from './components/PagesSection/PagesSection.vue';
+    import Navigation from './components/Navigation.vue';
+    import PagesSection from './components/PagesSection.vue';
     import { ref, provide } from 'vue';
 
     const isShowNavigation = ref<boolean>(false);

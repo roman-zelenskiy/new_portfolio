@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 15px;
+    height: 100%;
     .btn_burger{
         border: none;
         background: none;
@@ -44,15 +45,18 @@
             width: 58%;
             left: 0px;
         }
-        &.active span:nth-child(2){
-
-        }
         &.active span:nth-child(3){
             transform: rotate(30deg);
             bottom: 4px;
             width: 58%;
             left: 0px;
         }
+    }
+    .page_box{
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

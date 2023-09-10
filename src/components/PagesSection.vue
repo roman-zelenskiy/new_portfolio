@@ -5,10 +5,12 @@
 <template>
     <div class="pages_section">
         <open-nav-btn />
-        <div class="page_box"></div>
+        <div class="page_box">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <style lang="scss">
-    @import '../../assets/styles/components/pages_section.scss';
+    @import '../assets/styles/components/pages_section.scss';
 </style>
