@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    import OpenNavBtn from './OpenNavBtn.vue';
+</script>
 
 <template>
     <div class="pages_section">
-        <h1>hello</h1>
+        <open-nav-btn />
+        <div class="page_box"></div>
     </div>
 </template>
 

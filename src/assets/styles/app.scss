@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import './css_reset.scss';
 
-body{
+body {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.wrapper_app{
-    display: grid;
+.wrapper_app {
     height: 100vh;
-    grid-template-columns: 25% auto;
 }
 
-
+@media screen and (min-width: 992px) {
+    .wrapper_app {
+        display: grid;
+        grid-template-columns: 25% auto;
+    }
+}
 
 @media screen and (min-width: 1400px) {
-    .wrapper_app{
+    .wrapper_app {
         grid-template-columns: 350px auto;
     }
 }

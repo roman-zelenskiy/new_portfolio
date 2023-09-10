@@ -11,17 +11,20 @@
     min-width: 250px;
     max-width: 400px;
     gap: 60px;
-    //left: -110%;
-    left: 0;
+    left: -110%;
     padding: 56px 48px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: .3s;
     .name_nav{
         font-size: 30px;
         font-weight: 600;
         font-style: italic;
+    }
+    &.active{
+        left: 0;
     }
 }
 
@@ -51,6 +54,7 @@
         padding: 10px 0;
         display: inline-block;
         position: relative;
+        transition: 0.3s;
         &:before{
             content: "";
             position: absolute;
@@ -62,7 +66,8 @@
             margin: auto 0;
         }
         &:hover{
-            font-weight: 600;
+            // font-weight: 600;
+            transform: scale(1.1);
         }
         &.active{
             font-weight: 600;
@@ -98,7 +103,7 @@
     }
 }
 
-@media screen and (min-width: 999px) {
+@media screen and (min-width: 992px) {
     .nav{
         position: relative;
         left: auto;
