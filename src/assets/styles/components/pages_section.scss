@@ -1,20 +1,30 @@
 @import '../variables.scss';
-
 .pages_section {
     background: #ffffff;
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
-    height: 100%;
+    padding: 60px 15px;
+    height: calc(100vh - 120px);
+    .burger_box{
+        text-align: end;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: #ffffff;
+        height: 60px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
     .btn_burger{
         border: none;
         background: none;
-        align-self: flex-end;
-        margin: 25px 0;
         position: relative;
         width: 28px;
         height: 22px;
         transition: .3s;
+        margin-right: 30px;
         cursor: pointer;
         & span{
             position: absolute;
@@ -59,6 +69,18 @@
         justify-content: center;
     }
 }
+
+
+
+    @media screen and (min-width: 992px) {
+        .pages_section {
+            padding: 60px 30px;
+            .btn_burger{
+                display: none;
+            }
+        }
+    }
+
 
 @media screen and (min-width: 992px) {
     .pages_section .btn_burger{

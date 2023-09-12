@@ -1,11 +1,20 @@
-@mixin adaptiv_font($pcSize, $mobSize, $maxWidth) {
+@mixin adaptive_font($pcSize, $mobSize, $maxWidth) {
     $addSize: $pcSize - $mobSize;
     $maxWidth: $maxWidth - 320;
     font-size: calc(
       #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
     );
-  
+
     @media screen and (min-width: #{$maxWidth + px}) {
       font-size: #{$pcSize + px};
     }
-  }
+}
+
+@mixin bold_text() {
+    font-weight: 600;
+}
+
+@mixin bold_italic_text() {
+    font-weight: 600;
+    font-style: italic;
+}

@@ -17,8 +17,9 @@
     flex-direction: column;
     justify-content: space-between;
     transition: .3s;
+    z-index: 10;
     .name_nav{
-        @include adaptiv_font(40, 30, $widthResponsePX);
+        @include adaptive_font(40, 30, $widthResponsePX);
         font-weight: 600;
         font-style: italic;
     }
@@ -38,7 +39,7 @@
     flex-direction: column;
     gap: 30px;
     .text_bottom{
-        @include adaptiv_font(18, 16, $widthResponsePX);
+        @include adaptive_font(18, 16, $widthResponsePX);
         font-size: 16px;
         font-weight: 300;
     }
@@ -54,7 +55,7 @@
         display: inline-block;
         position: relative;
         transition: .2s;
-        @include adaptiv_font(23, 20, $widthResponsePX);
+        @include adaptive_font(23, 20, $widthResponsePX);
         &:before{
             content: "";
             position: absolute;

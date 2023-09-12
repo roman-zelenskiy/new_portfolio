@@ -15,12 +15,13 @@
     @import '../assets/styles/mixins.scss';
     @import '../assets/styles/variables.scss';
     .primary_button {
-        @include adaptiv_font(20, 18, $widthResponsePX);
+        @include adaptive_font(20, 18, $widthResponsePX);
         font-weight: 500;
         background: #000000;
         color: #ffffff;
         padding: 16px 40px;
         display: flex;
+        align-items: center;
         gap: 10px;
         border: none;
         cursor: pointer;

@@ -7,11 +7,10 @@
         "dev": "vite",
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
-        "lint": "eslint src --ext .ts,.vue",
-        "stylelint": "stylelint '**/*{.css,.scss}'",
-        "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix"
+        "lint": "eslint src --ext .ts,.vue"
     },
     "dependencies": {
+        "custom-vue-scrollbar": "^0.0.7",
         "vue": "^3.3.4",
         "vue-router": "^4.2.4"
     },

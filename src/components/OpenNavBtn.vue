@@ -9,7 +9,7 @@
 
 <template>
     <button
-        class="btn_burger menu-trigger"
+        class="btn_burger"
         :class="{ active: isShowNavigation }"
         @click="onClickButton"
     >
