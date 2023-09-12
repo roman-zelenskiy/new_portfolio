@@ -6,11 +6,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .content_box{
+    gap: 40px;
+    .content_box {
         order: 1;
     }
     .title {
-        @include adaptive_font(112, 45, $widthResponsePX);
+        @include adaptive_font(90, 45, $widthResponsePX);
         text-transform: uppercase;
         color: $darkColor;
         position: relative;
@@ -29,7 +30,8 @@
             border-right: 237px solid transparent;
             border-radius: 300px;
             margin: 20px auto;
-            filter: drop-shadow(-8px -10px 5px rgba(0,0,0,0.3));            transform: rotate(237deg) translate(229px, 0px);
+            filter: drop-shadow(-8px -10px 5px rgba(0, 0, 0, 0.3));
+            transform: rotate(237deg) translate(229px, 0px);
         }
     }
     .specialty {
@@ -63,10 +65,16 @@
             }
         }
     }
-    .name_photo{
+    .name_photo {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .photo_box {
+        width: 100%;
+        max-width: 450px;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -80,11 +88,6 @@
             flex-direction: row;
             gap: 48px;
         }
-        .name_photo{
-            // display: flex;
-            // flex-direction: row;
-            // align-items: center;
-        }
     }
 }
 
@@ -93,10 +96,42 @@
 
 @media screen and (min-width: 992px) {
     .home_page {
+        flex-direction: row;
+        flex-wrap: wrap;
         .contact_box {
             justify-content: space-between;
+        }
+        .photo_box {
+            min-width: 450px;
+            width: auto;
+        }
+
+        .content_box {
+            max-width: 560px;
+            width: 100%;
         }
     }
 }
 
+@media screen and (min-width: 1390px) {
+    .home_page {
+        .content_box {
+            order: 0;
+        }
+    }
+}
 
+@media screen and (min-width: 1545px) {
+    .home_page {
+        .title {
+            @include adaptive_font(100, 45, $widthResponsePX);
+        }
+        .content_box {
+            max-width: 615px;
+            width: 100%;
+        }
+        .photo_box {
+            min-width: 550px;
+        }
+    }
+}

@@ -5,86 +5,91 @@
     flex-direction: column;
     padding: 60px 15px;
     height: calc(100vh - 120px);
-    .burger_box{
+    .burger_box {
         text-align: end;
         position: fixed;
         width: 100%;
         top: 0;
         left: 0;
-        background: #ffffff;
+        background: $backgroundBurgerSection;
         height: 60px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        z-index: 20;
     }
-    .btn_burger{
+    .btn_burger {
         border: none;
         background: none;
         position: relative;
         width: 28px;
         height: 22px;
-        transition: .3s;
+        transition: 0.3s;
         margin-right: 30px;
         cursor: pointer;
-        & span{
+        & span {
             position: absolute;
             width: 100%;
             height: 3px;
             border-radius: 20px;
             background-color: $backgroundBurgerBtn;
             left: 0;
-            transition: .3s;
+            transition: 0.3s;
         }
-        & span:nth-child(1){
+        & span:nth-child(1) {
             top: 0;
         }
-        & span:nth-child(2){
+        & span:nth-child(2) {
             top: 0;
             bottom: 0;
             margin: auto 0;
         }
-        & span:nth-child(3){
+        & span:nth-child(3) {
             bottom: 0;
         }
-        &.active{
+        &.active {
             width: 35px;
         }
-        &.active span:nth-child(1){
+        &.active span:nth-child(1) {
             transform: rotate(-30deg);
             top: 5px;
             width: 58%;
             left: 0px;
         }
-        &.active span:nth-child(3){
+        &.active span:nth-child(3) {
             transform: rotate(30deg);
             bottom: 4px;
             width: 58%;
             left: 0px;
         }
     }
-    .page_box{
+    .page_box {
         flex-grow: 1;
         padding-bottom: 60px;
         display: flex;
         align-items: stretch;
         justify-content: stretch;
+        margin-top: 40px;
     }
 }
 
-
-
-    @media screen and (min-width: 992px) {
-        .pages_section {
-            padding: 60px 30px;
-            .btn_burger{
-                display: none;
-            }
+@media screen and (min-width: 992px) {
+    .pages_section {
+        padding: 60px 30px;
+        .burger_box {
+            display: none;
+        }
+        .page_box {
+            margin-top: 0px;
         }
     }
-
+}
 
 @media screen and (min-width: 992px) {
-    .pages_section .btn_burger{
+    .pages_section .btn_burger {
         display: none;
+    }
+    .pages_section .page_box {
+        align-self: center;
     }
 }

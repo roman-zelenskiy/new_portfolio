@@ -13,7 +13,6 @@
                 <h3 class="title">
                     My name is <span class="bold">{{ userData.full_name }}...</span>
                 </h3>
-                <MainImage></MainImage>
             </div>
             <p class="specialty">
                 <span class="bold_italic">{{ userData.specialty }}</span> based in
@@ -40,7 +39,7 @@
             </ul>
         </div>
         <div class="photo_box">
-            <!-- <MainImage></MainImage> -->
+            <MainImage></MainImage>
         </div>
     </div>
 </template>

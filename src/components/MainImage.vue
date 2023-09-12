@@ -16,17 +16,19 @@
         <span>
             <CirclePart4></CirclePart4>
         </span>
-        <img
-            class="photo"
-            src="../assets/img/main_photo.png"
-            alt=""
-        />
+        <div class="photo_wrap">
+            <img
+                class="photo"
+                src="../assets/img/main_photo.png"
+                alt=""
+            />
+        </div>
     </div>
 </template>
 
 <style scoped lang="scss">
     .main_photo {
-        width: 70%;
+        width: 100%;
         position: relative;
         flex-shrink: 0;
         &::before {
@@ -60,18 +62,18 @@
                 width: 63%;
             }
         }
-        .photo {
+
+        .photo_wrap {
+            width: 100%;
+            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    @media screen and (min-width: 576px) {
-        .main_photo {
-            // width: 30%;
+            overflow: hidden;
+            .photo {
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
 </style>

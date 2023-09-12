@@ -11,9 +11,7 @@
             <p class="residence">{{ userData.city }}, {{ userData.county }}</p>
             <ul class="gmail_phone">
                 <li class="phone_number">
-                    <a :href="`tel: ${userData.phone_number}`">
-                        +380 {{ userData.phone_number }}
-                    </a>
+                    <a :href="`tel: ${userData.phone_number}`"> +380 {{ userData.phone_number }} </a>
                 </li>
                 <li class="email">
                     <a :href="`mailto: ${userData.email}`">
@@ -22,7 +20,9 @@
                 </li>
             </ul>
             <ul class="social_networks">
-                <li v-for="item in socialNetworks"><a :href="item.path">{{ item.title }}</a></li>
+                <li v-for="item in socialNetworks">
+                    <a :href="item.path">{{ item.title }}</a>
+                </li>
             </ul>
         </div>
         <div class="form_box">
@@ -30,13 +30,22 @@
             <form action="#">
                 <div class="form_wrap">
                     <div class="input_box">
-                        <input class="name" type="text" placeholder="Name">
-                        <input class="email" type="email" placeholder="Email">
-                        <textarea class="message" placeholder="Message"></textarea>
+                        <input
+                            class="name"
+                            type="text"
+                            placeholder="Name"
+                        />
+                        <input
+                            class="email"
+                            type="email"
+                            placeholder="Email"
+                        />
+                        <textarea
+                            class="message"
+                            placeholder="Message"
+                        ></textarea>
                     </div>
-                    <PrimaryButton class="send_btn">
-                        Submit now
-                    </PrimaryButton>
+                    <PrimaryButton class="send_btn"> Submit now </PrimaryButton>
                 </div>
             </form>
         </div>
