@@ -3,7 +3,13 @@
     import { MailIcon, PhoneIcon } from '../assets/img/svg/index.ts';
     import PrimaryButton from '../components/PrimaryButton.vue';
     import MainImage from '../components/MainImage.vue'
+    import { useRouter } from 'vue-router';
 
+    const router = useRouter();
+
+    const onCGotoContact = () => {
+        router.push({name: 'Contact'});
+    }
 </script>
 
 <template>
@@ -18,7 +24,7 @@
                 <span class="bold_italic">{{ userData.specialty }}</span> based in
                 <span class="bold_italic">{{ userData.city }}</span>
             </p>
-            <PrimaryButton> Let’s talk with me </PrimaryButton>
+            <PrimaryButton @click="onCGotoContact()"> Let’s talk with me </PrimaryButton>
             <ul class="contact_box">
                 <li class="phone_number">
                     <a :href="`tel: ${userData.phone_number}`">
@@ -44,6 +50,7 @@
     </div>
 </template>
 
-<style scoped>
+<style lang="scss">
+
     @import '../assets/styles/pages/home.scss';
 </style>

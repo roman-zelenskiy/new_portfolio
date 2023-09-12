@@ -2,6 +2,7 @@
 @import './css_reset.scss';
 @import './mixins.scss';
 @import './variables.scss';
+@import './page_transition.scss';
 
 body {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -20,14 +21,9 @@ body {
     @include bold_italic_text();
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $BPSmallPC) {
     .wrapper_app {
         display: grid;
         grid-template-columns: 280px auto;
     }
 }
-
-@media screen and (min-width: 1400px) {
-
-}
-

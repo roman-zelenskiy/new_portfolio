@@ -1,5 +1,9 @@
 <script setup lang="ts">
     import OpenNavBtn from './OpenNavBtn.vue';
+    import { useRoute } from 'vue-router';
+
+    const route = useRoute();
+    console.log(route.path);
 </script>
 
 <template>
@@ -9,15 +13,22 @@
                 <open-nav-btn />
             </div>
             <div class="page_box">
-                <router-view></router-view>
+                <router-view v-slot="{ Component, route }">
+                    <Transition
+                        name="slide-fade"
+                        mode="out-in"
+                    >
+                        <component
+                            :is="Component"
+                            :key="route.path"
+                        />
+                    </Transition>
+                </router-view>
             </div>
         </div>
     </custom-scrollbar>
 </template>
 
 <style lang="scss">
-    .scrollbar__wrapper .scrollbar__thumb {
-        background-color: rgb(116, 116, 116);
-    }
     @import '../assets/styles/components/pages_section.scss';
 </style>

@@ -9,26 +9,31 @@ export const routes = [
     {
         name: 'Home',
         path: '/',
-        component: Home
+        component: Home,
+        meta: { transition: 'slide-fade' },
     },
     {
         name: 'About',
         path: '/about',
-        component: About
+        component: About,
+        meta: { transition: 'slide-fade' },
     },
     {
         name: 'My Experience',
         path: '/my_experience',
-        component: MyExperience
+        component: MyExperience,
+        meta: { transition: 'slide-fade' },
     },
     {
         name: 'Works',
         path: '/works',
-        component: Works
+        component: Works,
+        meta: { transition: 'slide-fade' },
     },
     {
         name: 'Contact',
         path: '/contact',
-        component: Contact
+        component: Contact,
+        meta: { transition: 'slide-fade' },
     },
 ]

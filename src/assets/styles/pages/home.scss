@@ -78,7 +78,7 @@
     }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: $BPSmall) {
     .home_page {
         .contact_box {
             margin-top: 64px;
@@ -91,10 +91,8 @@
     }
 }
 
-@media screen and (min-width: 768px) {
-}
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $BPSmallPC) {
     .home_page {
         flex-direction: row;
         flex-wrap: wrap;
@@ -113,7 +111,7 @@
     }
 }
 
-@media screen and (min-width: 1390px) {
+@media screen and (min-width: $BPExtraHorizontalPC) {
     .home_page {
         .content_box {
             order: 0;
@@ -121,7 +119,7 @@
     }
 }
 
-@media screen and (min-width: 1545px) {
+@media screen and (min-width: $BPExtraHorizontalPCLarge) {
     .home_page {
         .title {
             @include adaptive_font(100, 45, $widthResponsePX);
