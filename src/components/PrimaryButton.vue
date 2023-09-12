@@ -29,7 +29,7 @@
             display: block;
             width: 25px;
             height: 25px;
-            background: $mainGradient;
+            background: $mainBackground;
             padding: 5px;
             box-sizing: border-box;
             svg {

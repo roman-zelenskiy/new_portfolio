@@ -8,11 +8,11 @@
         <div class="content_box">
             <h5 class="page_title">Contact</h5>
             <p class="text_contact">Reach out me</p>
-            <p class="residence">Sumy, Ukraine</p>
+            <p class="residence">{{ userData.city }}, {{ userData.county }}</p>
             <ul class="gmail_phone">
                 <li class="phone_number">
                     <a :href="`tel: ${userData.phone_number}`">
-                        {{ userData.phone_number }}
+                        +380 {{ userData.phone_number }}
                     </a>
                 </li>
                 <li class="email">
@@ -26,14 +26,18 @@
             </ul>
         </div>
         <div class="form_box">
-            <h5>any project?</h5>
+            <h5 class="title_form">any project?</h5>
             <form action="#">
-                <div class="input_box">
-
+                <div class="form_wrap">
+                    <div class="input_box">
+                        <input class="name" type="text" placeholder="Name">
+                        <input class="email" type="email" placeholder="Email">
+                        <textarea class="message" placeholder="Message"></textarea>
+                    </div>
+                    <PrimaryButton class="send_btn">
+                        Submit now
+                    </PrimaryButton>
                 </div>
-                <PrimaryButton>
-                    Submit now
-                </PrimaryButton>
             </form>
         </div>
     </div>

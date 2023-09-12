@@ -7,7 +7,7 @@
     position: fixed;
     height: 100%;
     overflow: scroll;
-    min-width: 270px;
+    min-width: 280px;
     max-width: 400px;
     gap: 60px;
     left: -110%;
@@ -61,7 +61,7 @@
             position: absolute;
             width: 0%;
             height: 2px;
-            background: $mainGradient;
+            background: $mainBackground;
             top: 0;
             bottom: 0;
             left: 0;
