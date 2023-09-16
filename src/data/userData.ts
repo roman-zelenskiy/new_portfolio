@@ -76,7 +76,7 @@ export const userData = {
         {
             title: 'Online zoo',
             type: 'Study project',
-            link: 'https://roman-zelenskiy.github.io/furniture_test/',
+            link: 'https://roman-zelenskiy.github.io/online_zoo/',
             img: './img/online_zoo.webp',
             technologies: 'HTML, CSS, JavaScript'
         },
