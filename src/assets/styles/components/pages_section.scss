@@ -57,13 +57,13 @@
             transform: rotate(-30deg);
             top: 5px;
             width: 58%;
-            left: 0px;
+            left: -1px;
         }
         &.active span:nth-child(3) {
             transform: rotate(30deg);
-            bottom: 4px;
+            bottom: 5px;
             width: 58%;
-            left: 0px;
+            left: -1px;
         }
     }
     .page_box {

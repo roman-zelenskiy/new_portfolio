@@ -15,7 +15,10 @@
                     v-for="project in userData.works"
                     class="project_item"
                 >
-                    <a class="link" :href="project.link"></a>
+                    <a
+                        class="link"
+                        :href="project.link"
+                    ></a>
                     <div class="content">
                         <p class="type_project">{{ project.type }}</p>
                         <h4 class="name_project">{{ project.title }}</h4>
@@ -29,7 +32,8 @@
                     <div class="image_box">
                         <img
                             :src="project.img"
-                            alt=""
+                            :alt="project.title"
+                            loading="lazy"
                         />
                     </div>
                 </div>

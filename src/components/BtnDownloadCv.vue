@@ -5,7 +5,7 @@
 <template>
     <a
         download="CV"
-        href="../data/cv.pdf"
+        href="./data/cv.pdf"
         class="download_cv_btn"
     >
         <span>Download CV</span>
