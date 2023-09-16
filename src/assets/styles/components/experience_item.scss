@@ -12,6 +12,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color: $darkColor;
         gap: 10px;
         position: relative;
         padding-left: 25px;
@@ -57,10 +58,12 @@
         .organization {
             @include adaptive_font(16, 14, $widthResponsePX);
             font-weight: 500;
+            color: $darkColor;
         }
         .work_period {
             @include adaptive_font(18, 16, $widthResponsePX);
             font-weight: 600;
+            color: $darkColor;
             font-style: italic;
         }
     }
