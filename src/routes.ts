@@ -8,31 +8,31 @@ import MyExperience from "./pages/MyExperience.vue";
 export const routes = [
     {
         name: 'Home',
-        path: '/',
+        path: '/new_portfolio/',
         component: Home,
         meta: { transition: 'slide-fade' },
     },
     {
         name: 'About',
-        path: '/about',
+        path: '/new_portfolio/about',
         component: About,
         meta: { transition: 'slide-fade' },
     },
     {
         name: 'My Experience',
-        path: '/my_experience',
+        path: '/new_portfolio/my_experience',
         component: MyExperience,
         meta: { transition: 'slide-fade' },
     },
     {
         name: 'Works',
-        path: '/works',
+        path: '/new_portfolio/works',
         component: Works,
         meta: { transition: 'slide-fade' },
     },
     {
         name: 'Contact',
-        path: '/contact',
+        path: '/new_portfolio/contact',
         component: Contact,
         meta: { transition: 'slide-fade' },
     },
