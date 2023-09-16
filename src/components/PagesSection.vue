@@ -1,9 +1,5 @@
 <script setup lang="ts">
-    import OpenNavBtn from './OpenNavBtn.vue';
-    import { useRoute } from 'vue-router';
-
-    const route = useRoute();
-    console.log(route.path);
+    import OpenNavBtn from "./OpenNavBtn.vue";
 </script>
 
 <template>
@@ -30,5 +26,5 @@
 </template>
 
 <style lang="scss">
-    @import '../assets/styles/components/pages_section.scss';
+    @import "../assets/styles/components/pages_section.scss";
 </style>

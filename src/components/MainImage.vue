@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import { CirclePart1, CirclePart2, CirclePart3, CirclePart4 } from '../assets/img/svg/index.ts';
+    import { userData } from '../data';
 </script>
 
 <template>
@@ -19,7 +20,7 @@
         <div class="photo_wrap">
             <img
                 class="photo"
-                src="../assets/img/main_photo.png"
+                :src="userData.main_photo"
                 alt=""
             />
         </div>

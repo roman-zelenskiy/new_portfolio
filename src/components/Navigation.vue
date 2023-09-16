@@ -1,14 +1,15 @@
 <script setup lang="ts">
-    import { userData, socialNetworks } from '../data';
-    import { useRoute, useRouter } from 'vue-router';
-    import { inject } from 'vue';
+    import { useRoute, useRouter } from "vue-router";
+    import { inject } from "vue";
 
     const route = useRoute();
     const router = useRouter();
     const routes = router.options.routes;
 
-    const isShowNavigation: any = inject<boolean>('isShowNavigation');
-    const switchNavigation: any = inject<(value: boolean) => void>('switchNavigation');
+    const userData: any = inject("userData");
+    const socialNetworks: any = inject("socialNetworks");
+    const isShowNavigation: any = inject<boolean>("isShowNavigation");
+    const switchNavigation: any = inject<(value: boolean) => void>("switchNavigation");
     const closeNavigation = () => {
         switchNavigation(!isShowNavigation.value);
     };
@@ -16,7 +17,7 @@
 <template>
     <nav class="nav">
         <div class="top_sec_nav">
-            <h3 class="name_nav">{{ userData.first_name }}.</h3>
+            <h3 class="name_nav">{{ userData.abbr }}.</h3>
             <ul class="menu_nav">
                 <li v-for="item in routes">
                     <router-link
@@ -42,5 +43,5 @@
 </template>
 
 <style lang="scss">
-    @import '../assets/styles/components/navigation';
+    @import "../assets/styles/components/navigation";
 </style>

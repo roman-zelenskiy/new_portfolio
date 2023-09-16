@@ -44,26 +44,6 @@
         display: flex;
         gap: 15px;
         flex-direction: column;
-        li a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: $darkColor;
-            text-decoration: none;
-            .icon {
-                padding: 6px;
-                background: #1413130e;
-                border-radius: 50%;
-            }
-            .value {
-                @include bold_italic_text();
-                @include adaptive_font(20, 17, $widthResponsePX);
-            }
-            svg {
-                width: 21px;
-                height: 21px;
-            }
-        }
     }
     .name_photo {
         display: flex;
@@ -94,6 +74,7 @@
 
 @media screen and (min-width: $BPSmallPC) {
     .home_page {
+        align-self: center;
         flex-direction: row;
         flex-wrap: wrap;
         .contact_box {

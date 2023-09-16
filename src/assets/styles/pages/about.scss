@@ -1,0 +1,90 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.about_page {
+    .italic_text {
+        @include italic_header();
+    }
+    .title_page{
+        @include title_page();
+    }
+    .header_section {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        .big_text {
+            @include textSecondaryTitlePage();
+        }
+    }
+    .content_box {
+        margin-top: 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        .left_box {
+            order: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        .right_box {
+            .contact_list {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding-bottom: 30px;
+                border-bottom: 1px solid $lineBackground;
+            }
+            .skills,
+            .languages {
+                margin-top: 35px;
+                .skills_list,
+                .languages_list {
+                    margin-top: 15px;
+                    @include adaptive_font(18, 16, $widthResponsePX);
+                    font-weight: 600;
+                    line-height: 150%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $BPSmall) {
+    .about_page {
+        .header_section {
+            align-items: end;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+    }
+}
+
+@media screen and (min-width: $BPMedium) {
+    .about_page {
+        .content_box {
+            margin-top: 48px;
+            flex-direction: row;
+            .left_box,
+            .right_box {
+                flex-basis: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $BPSmallPC) {
+    .about_page {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+        .content_box {
+            .left_box {
+                order: 0;
+            }
+        }
+    }
+}

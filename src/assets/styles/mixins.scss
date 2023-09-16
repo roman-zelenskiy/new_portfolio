@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 @mixin adaptive_font($pcSize, $mobSize, $maxWidth) {
     $addSize: $pcSize - $mobSize;
     $maxWidth: $maxWidth - 320;
@@ -17,4 +19,32 @@
 @mixin bold_italic_text() {
     font-weight: 600;
     font-style: italic;
+}
+@mixin italic_header() {
+    @include adaptive_font(20, 16 , $widthResponsePX);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@mixin title_page() {
+    @include adaptive_font(20, 16 , $widthResponsePX);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@mixin textSecondaryTitlePage() {
+    margin-top: 15px;
+    font-weight: 700;
+    @include adaptive_font(48, 32, $widthResponsePX);
+    text-transform: uppercase;
+}
+
+
+@mixin gradientTextTransition($duration, $animate: ease, $color: $darkColor) {
+    background-image: linear-gradient(to right, $color 50%, #B86ADF, #FF6C63,#FFB147);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 100%;
+    background-position: top left;
+    transition:all $duration $animate;
 }

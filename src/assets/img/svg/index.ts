@@ -8,6 +8,9 @@ import CirclePart1 from './CirclePart1.vue'
 import CirclePart2 from './CirclePart2.vue'
 import CirclePart3 from './CirclePart3.vue'
 import CirclePart4 from './CirclePart4.vue'
+import UserIcon from "./UserIcon.vue";
+import PlaceIcon from "./PlaceIcon.vue";
+import TelegramIcon from './TelegramIcon.vue';
 
 export {
     ArrowIcon,
@@ -19,5 +22,8 @@ export {
     CirclePart1,
     CirclePart2,
     CirclePart3,
-    CirclePart4
+    CirclePart4,
+    UserIcon,
+    PlaceIcon,
+    TelegramIcon
 }

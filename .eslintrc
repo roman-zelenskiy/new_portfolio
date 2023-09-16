@@ -18,7 +18,7 @@
         "prettier/prettier": [
             "error",
             {
-                "singleQuote": true
+                "singleQuote": false
             }
         ],
         "vue/no-multiple-template-root": "off",

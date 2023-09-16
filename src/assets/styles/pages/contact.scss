@@ -67,9 +67,7 @@
     .content_box {
         align-self: flex-start;
         .page_title {
-            @include adaptive_font(20, 18, $widthResponsePX);
-            font-weight: 600;
-            font-style: italic;
+            @include title_page();
         }
         .text_contact {
             @include adaptive_font(50, 32, $widthResponsePX);

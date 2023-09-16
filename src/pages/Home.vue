@@ -1,15 +1,29 @@
 <script setup lang="ts">
-    import { userData } from '../data';
-    import { MailIcon, PhoneIcon } from '../assets/img/svg/index.ts';
-    import PrimaryButton from '../components/PrimaryButton.vue';
-    import MainImage from '../components/MainImage.vue'
-    import { useRouter } from 'vue-router';
+    import { useRouter } from "vue-router";
+    import { inject } from "vue";
+    import { MailIcon, PhoneIcon } from "../assets/img/svg/index.ts";
+    import PrimaryButton from "../components/PrimaryButton.vue";
+    import MainImage from "../components/MainImage.vue";
+    import ContactItem from "../components/ContactItem.vue";
 
+    const userData: any = inject("userData");
     const router = useRouter();
+    const contactList = [
+        {
+            title: userData.phone_number,
+            href: `tel: ${userData.phone_number}`,
+            icon: PhoneIcon,
+        },
+        {
+            title: userData.email,
+            href: `mailto: ${userData.email}`,
+            icon: MailIcon,
+        },
+    ];
 
     const onCGotoContact = () => {
-        router.push({name: 'Contact'});
-    }
+        router.push({ name: "Contact" });
+    };
 </script>
 
 <template>
@@ -26,22 +40,10 @@
             </p>
             <PrimaryButton @click="onCGotoContact()"> Let’s talk with me </PrimaryButton>
             <ul class="contact_box">
-                <li class="phone_number">
-                    <a :href="`tel: ${userData.phone_number}`">
-                        <span class="icon">
-                            <PhoneIcon></PhoneIcon>
-                        </span>
-                        <span class="value">{{ userData.phone_number }}</span>
-                    </a>
-                </li>
-                <li class="email">
-                    <a :href="`mailto: ${userData.email}`">
-                        <span class="icon">
-                            <MailIcon></MailIcon>
-                        </span>
-                        <span class="value">{{ userData.email }}</span>
-                    </a>
-                </li>
+                <ContactItem
+                    v-for="item in contactList"
+                    :item="item"
+                ></ContactItem>
             </ul>
         </div>
         <div class="photo_box">
@@ -51,6 +53,5 @@
 </template>
 
 <style lang="scss">
-
-    @import '../assets/styles/pages/home.scss';
+    @import "../assets/styles/pages/home.scss";
 </style>

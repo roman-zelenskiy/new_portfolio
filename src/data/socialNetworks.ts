@@ -1,4 +1,4 @@
-import { GithubIcon, InstagramIcon, LinkedinIcon } from '../assets/img/svg';
+import { GithubIcon, TelegramIcon, LinkedinIcon } from '../assets/img/svg';
 
 export const socialNetworks = [
     {
@@ -12,8 +12,8 @@ export const socialNetworks = [
         icon: LinkedinIcon
     },
     {
-        title: 'Instagram',
-        path: 'https://www.instagram.com/roma_zelenskiy/',
-        icon: InstagramIcon
+        title: 'Telegram',
+        path: 'https://t.me/roma_zelenskyi',
+        icon: TelegramIcon
     }
 ]
