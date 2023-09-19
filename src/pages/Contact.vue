@@ -39,7 +39,7 @@
             <p class="residence">{{ userData.city }}, {{ userData.county }}</p>
             <ul class="gmail_phone">
                 <li class="phone_number">
-                    <a :href="`tel: ${userData.phone_number}`"> +380 {{ userData.phone_number }} </a>
+                    <a :href="`tel: ${userData.phone_number}`"> +38 {{ userData.phone_number }} </a>
                 </li>
                 <li class="email">
                     <a :href="`mailto: ${userData.email}`">
