@@ -16,6 +16,9 @@
     justify-content: space-between;
     transition: .3s;
     z-index: 10;
+    &::-webkit-scrollbar {
+        width: 0;
+      }
     .name_nav{
         @include adaptive_font(40, 30, $widthResponsePX);
         font-weight: 600;
