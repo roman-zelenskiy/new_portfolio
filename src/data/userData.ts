@@ -7,7 +7,7 @@ export const userData = {
     email: 'romazelenskiy2000@gmail.com',
     phone_number: '0683196434',
     specialty: 'Frontend Developer',
-    main_photo: './img/main_photo.png',
+    main_photo: './img/main_photo.webp',
     age: '23 years',
     skills: 'HTML, CSS, SASS, Bootstrap, JavaScript, jQuery, React, Vue, Redux, Vuex, Pinia, Nuxt, Gulp, Webpack, Git, Github',
     languages: [
