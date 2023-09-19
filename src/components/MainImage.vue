@@ -1,11 +1,11 @@
 <script setup lang="ts">
-    import { CirclePart1, CirclePart2, CirclePart3, CirclePart4 } from '../assets/img/svg/index.ts';
+    // import { CirclePart1, CirclePart2, CirclePart3, CirclePart4 } from '../assets/img/svg/index.ts';
     import { userData } from '../data';
 </script>
 
 <template>
     <div class="main_photo">
-        <span>
+        <!-- <span>
             <CirclePart1></CirclePart1>
         </span>
         <span>
@@ -16,7 +16,7 @@
         </span>
         <span>
             <CirclePart4></CirclePart4>
-        </span>
+        </span> -->
         <div class="photo_wrap">
             <img
                 class="photo"

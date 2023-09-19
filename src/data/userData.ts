@@ -148,7 +148,7 @@ export const userData = {
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/ibm-certificate/',
             img: './img/IBM_CERTIFICATE.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'c'
         },
         {
             title: 'HtmlCssJs-Course',
