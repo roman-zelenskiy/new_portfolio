@@ -11,9 +11,9 @@ export const userData = {
     age: '23 years',
     skills: 'HTML, CSS, SASS, Bootstrap, JavaScript, jQuery, React, Vue, Redux, Vuex, Pinia, Nuxt, Gulp, Webpack, Git, Github',
     languages: [
-        'English: Elementary',
         'Ukrainian: Native',
-        'Russian: Elementary'
+        'English: Elementary',
+        'Russian: Native'
     ],
     education: {
         title: 'Education',
