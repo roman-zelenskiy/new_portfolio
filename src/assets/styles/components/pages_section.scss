@@ -2,6 +2,10 @@
 .scrollbar__wrapper .scrollbar__thumb {
     background-color: rgb(116, 116, 116);
 }
+.scrollbar__thumbPlaceholder--horizontal {
+    height: 0px;
+}
+
 .pages_section {
     background: #ffffff;
     display: flex;

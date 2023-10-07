@@ -9,7 +9,7 @@ export const userData = {
     specialty: 'Frontend Developer',
     main_photo: './img/main_photo.webp',
     age: '23 years',
-    skills: 'HTML, CSS, SASS, Bootstrap, JavaScript, jQuery, React, Vue, Redux, Vuex, Pinia, Nuxt, Gulp, Webpack, Git, Github',
+    skills: 'HTML, CSS, SASS, Bootstrap, Tailwind, JavaScript, jQuery, React, Vue, Redux, Vuex, Pinia, Nuxt, Gulp, Webpack, Vite, Git, Github',
     languages: [
         'Ukrainian: Native',
         'English: Elementary',
