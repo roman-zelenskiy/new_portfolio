@@ -5,11 +5,11 @@ export const userData = {
     county: 'Ukraine',
     city: 'Sumy',
     email: 'romazelenskiy2000@gmail.com',
-    phone_number: '0683196434',
+    phone_number: '+380683196434',
     specialty: 'Frontend Developer',
     main_photo: './img/main_photo.webp',
     age: '23 years',
-    skills: 'HTML, CSS, SASS, Bootstrap, Tailwind, JavaScript, jQuery, React, Vue, Redux, Vuex, Pinia, Nuxt, Gulp, Webpack, Vite, Git, Github',
+    skills: 'HTML, CSS, SASS, Bootstrap, Tailwind, JavaScript, TypeScript, jQuery, Vue, Vuex, Pinia, Nuxt, Gulp, Webpack, Vite, Git, Github',
     languages: [
         'Ukrainian: Native',
         'English: Elementary',
@@ -51,153 +51,193 @@ export const userData = {
         },
         {
             position: 'Frontend Developer',
-            organization: 'Kuzka-shop',
+            organization: 'Ocean Script',
             work_period: 'February 2023 - Present',
-            description: 'This is a clothing marketplace project. In it I got acquainted with a lot of technologies such as Vue, Nuxt, Typescript, Pinia, and many others. I got acquainted with SSR rendering method, I understood the importance of using TypeScript on such projects, I was developing such functionality as authorization, registration, cart, search, multi-language....',
-            technologies: 'HTML, CSS, SCSS, jQuery, JavaScript, TypeScript, Bootstrap, Vue, Nuxt, Pinia, Git, Github',
-            link: 'https://kuzka-shop.com/',
+            description: 'Frontend development in Web agency Ocean Script',
+            technologies: 'HTML, CSS, SCSS, jQuery, JavaScript, TypeScript, Bootstrap, Tailwind, Vue, Nuxt, Pinia, Git, Github',
+            link: 'https://ocean-script.com/',
         },
     ],
     works: [
         {
             title: 'Kuzka-shop',
-            type: 'Freelance project',
+            type: 'Ocean Script project',
             link: 'https://kuzka-shop.com/',
             img: './img/kuzka_shop.webp',
-            technologies: 'HTML, CSS, SCSS, jQuery, JavaScript, TypeScript, Bootstrap, Vue, Nuxt, Pinia, Git, Github'
+            technologies: 'HTML, CSS, SCSS, jQuery, JavaScript, TypeScript, Bootstrap, Vue, Nuxt, Pinia, Git, Github',
+            images: ['./img/kuzka_shop/image_1.png', './img/kuzka_shop/image_2.png', './img/kuzka_shop/image_3.png', './img/kuzka_shop/image_4.png', './img/kuzka_shop/image_5.png', './img/kuzka_shop/image_6.png', './img/kuzka_shop/image_7.png','./img/kuzka_shop/image_8.png','./img/kuzka_shop/image_9.png','./img/kuzka_shop/image_10.png','./img/kuzka_shop/image_11.png'],
+            typeShow: 'images',
         },
         {
             title: 'Hector',
             type: 'Test task',
             link: 'https://roman-zelenskiy.github.io/galaxy_it_test/',
             img: './img/hector.webp',
-            technologies: 'HTML, SCSS, Gulp, JavaScript'
+            technologies: 'HTML, SCSS, Gulp, JavaScript',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Online zoo',
             type: 'Study project',
             link: 'https://roman-zelenskiy.github.io/online_zoo/',
             img: './img/online_zoo.webp',
-            technologies: 'HTML, CSS, JavaScript'
+            technologies: 'HTML, CSS, JavaScript',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Furniture',
             type: 'Test task',
             link: 'https://roman-zelenskiy.github.io/furniture_test/',
             img: './img/furniture_test.webp',
-            technologies: 'HTML, CSS'
+            technologies: 'HTML, CSS',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Leader energy',
             type: 'Study project',
             link: 'https://roman-zelenskiy.github.io/Leader_NRG_Ukraine/',
             img: './img/leader_energy.webp',
-            technologies: 'HTML, CSS, Bootstrap'
+            technologies: 'HTML, CSS, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Notes App',
             type: 'Test task',
             link: 'https://roman-zelenskiy.github.io/test_todo_vue/',
             img: './img/todo_project.webp',
-            technologies: 'HTML, SCSS, Vue, Pinia, LocalStorage'
+            technologies: 'HTML, SCSS, Vue, Pinia, LocalStorage',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Robogptskills',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/robogptskills/',
             img: './img/Robogptskills.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Business Founds',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/businesfounds/',
             img: './img/BUSINESFOUNDS.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'App PHP Course',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/appphpcourse/',
             img: './img/APPPHPCOURSE.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Real-World Product Management',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/real-worldproductmanagement/',
             img: './img/REAL_WORLDPRODUCTMANAGEMENT.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Marketer Course',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/marketercourse/',
             img: './img/MarketerCourse.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Manage-Security',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/manage-security/',
             img: './img/MANAGE_SECURITY.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Ibm-Certificate',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/ibm-certificate/',
             img: './img/IBM_CERTIFICATE.png',
-            technologies: 'c'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'HtmlCssJs-Course',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/htmlcssjava-course/',
             img: './img/HTMLCSSJAVA_COURSE.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Game design Uniti',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/game-designuniti/',
             img: './img/Game_designuniti.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Fast Learning Course',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/fastlearningcourse/',
             img: './img/FASTLEARNINGCOURSE.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Biovoic',
             type: 'Study project',
             link: 'https://roman-zelenskiy.github.io/biovoid/',
             img: './img/biovoic.webp',
-            technologies: 'HTML, CSS, JavaScript'
+            technologies: 'HTML, CSS, JavaScript',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'BakeryBo',
             type: 'Study project',
             link: 'https://roman-zelenskiy.github.io/bakery_bo/',
             img: './img/bakery_bo.webp',
-            technologies: 'HTML, CSS, JavaScript'
+            technologies: 'HTML, CSS, JavaScript',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Using-Excel',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/using-excel/',
             img: './img/USING_EXCEL.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
         {
             title: 'Start Develop Top',
             type: 'Freelance project',
             link: 'https://roman-zelenskiy.github.io/startdeveloptop/',
             img: './img/STARTDEVELOPTOP.png',
-            technologies: 'HTML, SCSS, Gulp, Bootstrap'
+            technologies: 'HTML, SCSS, Gulp, Bootstrap',
+            images: [],
+            typeShow: 'link',
         },
     ]
 }

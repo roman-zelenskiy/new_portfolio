@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { ref, computed, inject } from "vue";
-    import PrimaryButton from "../components/PrimaryButton.vue";
+    import PrimaryButton from "../components/ui/PrimaryButton.vue";
 
     const userData: any = inject("userData");
     const socialNetworks: any = inject("socialNetworks");
@@ -39,7 +39,7 @@
             <p class="residence">{{ userData.city }}, {{ userData.county }}</p>
             <ul class="gmail_phone">
                 <li class="phone_number">
-                    <a :href="`tel: ${userData.phone_number}`"> +38 {{ userData.phone_number }} </a>
+                    <a :href="`tel: ${userData.phone_number}`">{{ userData.phone_number }} </a>
                 </li>
                 <li class="email">
                     <a :href="`mailto: ${userData.email}`">

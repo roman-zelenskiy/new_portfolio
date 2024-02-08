@@ -12,6 +12,7 @@
     .project_list {
         margin-top: 30px;
         display: grid;
+        grid-auto-rows: 1fr;
         grid-template-columns: 1fr;
         gap: 30px;
     }

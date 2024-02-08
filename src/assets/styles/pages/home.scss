@@ -10,29 +10,12 @@
     .content_box {
         order: 1;
     }
-    .title {
+    .title_home {
         @include adaptive_font(90, 45, $widthResponsePX);
         text-transform: uppercase;
         color: $darkColor;
         position: relative;
         z-index: 2;
-        &::before {
-            content: '';
-            z-index: -1;
-            position: absolute;
-            width: 250px;
-            height: 60px;
-            background: linear-gradient(45deg, #b86adf, #ff6c63, #ffb147) no-repeat;
-            background-size: cover;
-            width: 63px;
-            background-position-y: -25px;
-            height: 300px;
-            border-right: 237px solid transparent;
-            border-radius: 300px;
-            margin: 20px auto;
-            filter: drop-shadow(-8px -10px 5px rgba(0, 0, 0, 0.3));
-            transform: rotate(237deg) translate(229px, 0px);
-        }
     }
     .specialty {
         @include adaptive_font(38, 28, $widthResponsePX);

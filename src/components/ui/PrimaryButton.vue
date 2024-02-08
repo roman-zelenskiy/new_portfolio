@@ -1,19 +1,20 @@
 <script setup lang="ts">
-    import ArrowIcon from '../assets/img/svg/ArrowIcon.vue';
+    import ArrowIcon from "../../assets/img/svg/ArrowIcon.vue";
+    import Button from "./Button.vue";
 </script>
 
 <template>
-    <button class="primary_button">
+    <Button class="primary_button">
         <span>
             <slot></slot>
         </span>
         <span class="icon"> <ArrowIcon></ArrowIcon></span>
-    </button>
+    </Button>
 </template>
 
 <style scoped lang="scss">
-    @import '../assets/styles/mixins.scss';
-    @import '../assets/styles/variables.scss';
+    @import "../../assets/styles/mixins.scss";
+    @import "../../assets/styles/variables.scss";
     .primary_button {
         @include adaptive_font(20, 18, $widthResponsePX);
         font-weight: 500;
@@ -33,14 +34,14 @@
             padding: 5px;
             box-sizing: border-box;
             svg {
-                transition: .3s;
+                transition: 0.3s;
                 vertical-align: top;
                 fill: white;
                 widows: 100%;
                 height: 100%;
             }
         }
-        &:hover .icon svg{
+        &:hover .icon svg {
             transform: translate(10px, -10px);
         }
     }

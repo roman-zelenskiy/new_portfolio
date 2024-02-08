@@ -2,7 +2,7 @@
     import { useRouter } from "vue-router";
     import { inject } from "vue";
     import { MailIcon, PhoneIcon } from "../assets/img/svg/index.ts";
-    import PrimaryButton from "../components/PrimaryButton.vue";
+    import PrimaryButton from "../components/ui/PrimaryButton.vue";
     import MainImage from "../components/MainImage.vue";
     import ContactItem from "../components/ContactItem.vue";
 
@@ -30,7 +30,8 @@
     <div class="home_page">
         <div class="content_box">
             <div class="name_photo">
-                <h3 class="title">
+                <h3 class="title_home">
+                    <span class="title_home_icon"></span>
                     My name is <span class="bold">{{ userData.full_name }}...</span>
                 </h3>
             </div>
@@ -54,4 +55,11 @@
 
 <style lang="scss">
     @import "../assets/styles/pages/home.scss";
+
+    .title_home_icon {
+        @apply content-[''] z-[-1] left-[-329px] top-[-155px]  absolute w-[250px]  bg-cover h-[244px] rotate-[237deg] translate-x-[229px] mx-auto my-5 rounded-[300px] border-r-[205px] border-r-transparent border-solid;
+        background: linear-gradient(45deg, #b86adf, #ff6c63, #ffb147) no-repeat;
+        background-position-y: -25px;
+        filter: drop-shadow(-8px -10px 5px rgba(0, 0, 0, 0.3));
+    }
 </style>
