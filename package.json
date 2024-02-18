@@ -12,10 +12,10 @@
         "lint": "eslint src --ext .ts,.vue"
     },
     "dependencies": {
-        "custom-vue-scrollbar": "^0.0.7",
         "swiper": "^11.0.6",
         "vue": "^3.3.4",
-        "vue-router": "^4.2.4"
+        "vue-router": "^4.2.4",
+        "vue3-perfect-scrollbar": "^1.6.1"
     },
     "devDependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.2",

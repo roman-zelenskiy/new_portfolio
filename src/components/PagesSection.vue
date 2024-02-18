@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <custom-scrollbar :style="{ height: '100vh' }">
+    <perfect-scrollbar class="h-[100vh]">
         <div class="pages_section">
             <div class="burger_box">
                 <open-nav-btn />
@@ -22,7 +22,7 @@
                 </router-view>
             </div>
         </div>
-    </custom-scrollbar>
+    </perfect-scrollbar>
 </template>
 
 <style lang="scss">

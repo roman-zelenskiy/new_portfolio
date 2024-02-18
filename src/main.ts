@@ -1,12 +1,13 @@
 import { createApp } from 'vue';
 import { router } from './router';
-import CustomScrollbar from 'custom-vue-scrollbar';
 import './style.css';
-import 'custom-vue-scrollbar/dist/style.css';
 import App from './App.vue';
+
+import PerfectScrollbar from 'vue3-perfect-scrollbar'
+import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
 
 const app = createApp(App);
 app.use(router);
-app.component(CustomScrollbar.name, CustomScrollbar);
+app.use(PerfectScrollbar);
 
 app.mount('#app');
