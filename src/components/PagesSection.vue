@@ -1,10 +1,21 @@
 <script setup lang="ts">
+    import { provide, ref } from "vue";
     import OpenNavBtn from "./OpenNavBtn.vue";
+    const isLocked = ref(false);
+
+    const lockedPagesSectionScroll = (value: boolean) => {
+        isLocked.value = value;
+    };
+
+    provide("lockedPagesSectionScroll", lockedPagesSectionScroll);
 </script>
 
 <template>
     <perfect-scrollbar class="h-[100vh]">
-        <div class="pages_section">
+        <div
+            class="pages_section"
+            :class="{ 'overflow-hidden': isLocked }"
+        >
             <div class="burger_box">
                 <open-nav-btn />
             </div>

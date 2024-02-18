@@ -1,18 +1,29 @@
 <script setup lang="ts">
+    import { inject, watch } from "vue";
     import ButtonOpacityClose from "./ButtonOpacityClose.vue";
     import { register } from "swiper/element/bundle";
     register();
 
-    defineProps<{
+    const props = defineProps<{
         modelValue: boolean;
         slides: string[];
     }>();
+
+    const lockedPagesSectionScroll: any = inject("lockedPagesSectionScroll");
 
     const emits = defineEmits(["update:modelValue"]);
 
     const updateValue = (value: boolean) => {
         emits("update:modelValue", value);
     };
+
+    watch(
+        () => props.modelValue,
+        () => {
+            lockedPagesSectionScroll(props.modelValue);
+        },
+        { deep: true }
+    );
 </script>
 
 <template>
