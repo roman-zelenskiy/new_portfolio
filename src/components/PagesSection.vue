@@ -1,17 +1,31 @@
 <script setup lang="ts">
-    import { provide, ref } from "vue";
+    import { provide, ref, watch } from "vue";
     import OpenNavBtn from "./OpenNavBtn.vue";
     const isLocked = ref(false);
+    const scrollbar = ref();
+    const componentRouterView = ref();
 
     const lockedPagesSectionScroll = (value: boolean) => {
         isLocked.value = value;
     };
 
+    watch(
+        componentRouterView,
+        () => {
+            scrollbar.value?.ps?.update();
+        },
+        { deep: true }
+    );
+
     provide("lockedPagesSectionScroll", lockedPagesSectionScroll);
 </script>
 
 <template>
-    <perfect-scrollbar class="h-[100vh]">
+    <perfect-scrollbar
+        :watchOptions="true"
+        ref="scrollbar"
+        class="h-[100vh]"
+    >
         <div
             class="pages_section"
             :class="{ 'overflow-hidden': isLocked }"
@@ -26,6 +40,7 @@
                         mode="out-in"
                     >
                         <component
+                            ref="componentRouterView"
                             :is="Component"
                             :key="route.path"
                         />
