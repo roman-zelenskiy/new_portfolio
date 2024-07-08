@@ -7,7 +7,7 @@ export const userData = {
     email: 'romazelenskiy2000@gmail.com',
     phone_number: '+380683196434',
     specialty: 'Frontend Developer',
-    main_photo: './img/main_photo.webp',
+    main_photo: './img/main_photo.jpeg',
     age: '23 years',
     skills: 'HTML, CSS, SASS, Bootstrap, Tailwind, JavaScript, TypeScript, jQuery, Vue, Vuex, Pinia, Nuxt, Gulp, Webpack, Vite, Git, Github',
     languages: [
@@ -60,6 +60,15 @@ export const userData = {
     ],
     works: [
         {
+            title: 'Clickwerk',
+            type: 'Ocean Script project',
+            link: 'https://clickwerk.eu/',
+            img: './img/clickwerk.webp',
+            technologies: 'HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Pinia, I18n, Git, Github',
+            images: [],
+            typeShow: 'link',
+        },
+        {
             title: 'Ukrainemart',
             type: 'Ocean Script project',
             link: 'https://ukrainemart.com/',
@@ -91,6 +100,15 @@ export const userData = {
             type: 'Ocean Script project',
             link: 'https://ocean-script.com/',
             img: './img/ocean_script.webp',
+            technologies: 'HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Git, Github',
+            images: [],
+            typeShow: 'link',
+        },
+        {
+            title: 'ELRITECH//',
+            type: 'Ocean Script project',
+            link: 'https://roman-zelenskiy.github.io/elritech/',
+            img: './img/elritech.webp',
             technologies: 'HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Git, Github',
             images: [],
             typeShow: 'link',
