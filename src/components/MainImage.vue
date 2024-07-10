@@ -1,6 +1,10 @@
 <script setup lang="ts">
     // import { CirclePart1, CirclePart2, CirclePart3, CirclePart4 } from '../assets/img/svg/index.ts';
-    import { userData } from "../data";
+    // import { userData } from "../data";
+
+    import { inject } from "vue";
+
+    const userData: any = inject("userData");
 </script>
 
 <template>
@@ -8,7 +12,7 @@
         <div class="photo_wrap">
             <img
                 class="photo object-cover rounded-[50%] size-[30vw] lg:size-[25vw]"
-                :src="userData.main_photo"
+                :src="userData?.main_photo"
                 alt=""
             />
         </div>

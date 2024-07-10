@@ -1,0 +1,18 @@
+{
+    "first_name": "Roman",
+    "full_name": "Roman Zelenskyi",
+    "abbr": "RZ",
+    "county": "Ukraine",
+    "city": "Sumy",
+    "email": "romazelenskiy2000@gmail.com",
+    "phone_number": "+380683196434",
+    "specialty": "Frontend Developer",
+    "main_photo": "./img/main_photo.jpeg",
+    "age": "23 years",
+    "skills": "HTML, CSS, SASS, Bootstrap, Tailwind, JavaScript, TypeScript, jQuery, Vue, Vuex, Pinia, Nuxt, Gulp, Webpack, Vite, Git, Github",
+    "languages": [
+        "Ukrainian: Native",
+        "English: Elementary",
+        "Russian: Native"
+    ]
+}

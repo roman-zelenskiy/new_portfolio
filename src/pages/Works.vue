@@ -1,12 +1,12 @@
 <script setup lang="ts">
-    import { inject, computed, ref } from "vue";
+    import { inject, computed, ref, Ref } from "vue";
     import { ArrowIcon } from "../assets/img/svg";
     import SliderImages from "../components/ui/SliderImages.vue";
     import Button from "../components/ui/Button.vue";
 
-    const userData: any = inject("userData");
+    const userData: Ref<any> | undefined = inject("userData");
 
-    const works = computed<Work[]>(() => userData.works);
+    const works = computed<Work[]>(() => userData?.value.works);
     const isModalProjects = ref(false);
     const currentImages = ref<string[]>([]);
 
@@ -18,7 +18,10 @@
 </script>
 
 <template>
-    <div class="works_page">
+    <div
+        class="works_page"
+        v-if="userData"
+    >
         <div class="header_section">
             <p class="title_page">Works</p>
             <p class="secondary_title">Recent project</p>

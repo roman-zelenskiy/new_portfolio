@@ -1,31 +1,31 @@
 <script setup lang="ts">
-    import { inject } from "vue";
+    import { inject, computed, Ref } from "vue";
     import { PhoneIcon, PlaceIcon, UserIcon, MailIcon } from "../assets/img/svg";
     import ContactItem from "../components/ContactItem.vue";
     import EducationList from "../components/EducationList.vue";
     import BtnDownloadCv from "../components/BtnDownloadCv.vue";
 
-    const userData: any = inject("userData");
-    const contactList = [
+    const userData: Ref<any> | undefined | any = inject("userData");
+    const contactList = computed(() => [
         {
-            title: userData.phone_number,
-            href: `tel: ${userData.phone_number}`,
+            title: userData?.value?.phone_number,
+            href: `tel: ${userData?.value?.phone_number}`,
             icon: PhoneIcon,
         },
         {
-            title: userData.age,
+            title: userData?.value?.age,
             icon: UserIcon,
         },
         {
-            title: userData.email,
-            href: `mailto: ${userData.email}`,
+            title: userData?.value.email,
+            href: `mailto: ${userData?.value?.email}`,
             icon: MailIcon,
         },
         {
-            title: `${userData.county}, ${userData.city}`,
+            title: `${userData?.value?.county}, ${userData?.value.city}`,
             icon: PlaceIcon,
         },
-    ];
+    ]);
 </script>
 
 <template>
@@ -65,5 +65,5 @@
 </template>
 
 <style scoped lang="scss">
-    @import '../assets/styles/pages/about.scss';
+    @import "../assets/styles/pages/about.scss";
 </style>

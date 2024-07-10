@@ -15,9 +15,12 @@
     };
 </script>
 <template>
-    <nav class="nav">
+    <nav
+        class="nav"
+        v-if="userData"
+    >
         <div class="top_sec_nav">
-            <h3 class="name_nav">{{ userData.abbr }}.</h3>
+            <h3 class="name_nav">{{ userData?.abbr }}.</h3>
             <ul class="menu_nav">
                 <li v-for="item in routes">
                     <router-link
@@ -33,7 +36,7 @@
             <ul class="social_network">
                 <li v-for="item in socialNetworks">
                     <a :href="item.path">
-                        <component :is="item.icon" />
+                        <img :src="item?.icon" />
                     </a>
                 </li>
             </ul>

@@ -1,7 +1,7 @@
-import { userData } from "./userData";
+// import { userData } from "./userData";
 import { socialNetworks } from "./socialNetworks";
 
 export{
-    userData,
+    // userData,
     socialNetworks
 }
