@@ -6,7 +6,7 @@
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch("/src/data/userData.json");
+            const response = await fetch(import.meta.env.VITE_BASE_URL + "/src/data/userData.json");
             const dataParse = await response.json();
             userData.value = dataParse;
             socialNetworks.value = dataParse.social_networks;
