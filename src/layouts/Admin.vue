@@ -7,12 +7,12 @@
     const userData: any = inject("userData");
 
     const menuItems = computed<NavigationMenuItem[]>(() => {
-        const currentRoute = router.options.routes.find((el) => el.name === "Admin");
+        const currentRoute = router.options.routes.find((el: any) => el.name === "Admin");
 
         return (
             currentRoute?.children
-                ?.filter((el) => el.name !== "AdminMain")
-                ?.map((el) => {
+                ?.filter((el: any) => el.name !== "AdminMain")
+                ?.map((el: any) => {
                     return {
                         routeName: el.name as string,
                         routePath: currentRoute.path + "/" + el.path,

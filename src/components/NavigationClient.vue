@@ -9,13 +9,13 @@
     const router = useRouter();
 
     const menuItems = computed<NavigationMenuItem[]>(() => {
-        const currentRoute = router.options.routes.find((el) => el.name === "Client");
+        const currentRoute = router.options.routes.find((el: any) => el.name === "Client");
 
         return (
-            currentRoute?.children?.map((el) => ({
+            currentRoute?.children?.map((el: any) => ({
                 routeName: el.name as string,
                 routePath: currentRoute.path + el.path,
-                name: el.name,
+                name: el.name as string, 
             })) || []
         );
     });
