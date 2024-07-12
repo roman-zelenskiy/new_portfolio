@@ -1,6 +1,13 @@
 <script setup lang="ts">
     import { provide, ref, watch } from "vue";
     import OpenNavBtn from "./OpenNavBtn.vue";
+
+    defineProps<{
+        isShowNavigation: boolean;
+    }>();
+
+    const emits = defineEmits(["switchNavigation"]);
+
     const isLocked = ref(false);
     const scrollbar = ref();
     const componentRouterView = ref();
@@ -31,7 +38,10 @@
             :class="{ 'overflow-hidden': isLocked }"
         >
             <div class="burger_box">
-                <open-nav-btn />
+                <open-nav-btn
+                    :active="isShowNavigation"
+                    @switchNavigation="emits('switchNavigation', !isShowNavigation)"
+                />
             </div>
             <div class="page_box">
                 <router-view v-slot="{ Component, route }">

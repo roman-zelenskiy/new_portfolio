@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ArrowIcon } from "../assets/img/svg";
+    import { ArrowIcon } from "../../assets/img/svg";
 </script>
 
 <template>
@@ -19,7 +19,7 @@
 </template>
 
 <style scoped lang="scss">
-    @import "../assets/styles/variables.scss";
+    @import "../../assets/styles/variables.scss";
     .download_cv_btn {
         color: $darkColor;
         font-weight: 500;

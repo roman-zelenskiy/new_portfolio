@@ -5,21 +5,70 @@
     import PrimaryButton from "../components/ui/PrimaryButton.vue";
     import MainImage from "../components/MainImage.vue";
     import ContactItem from "../components/ContactItem.vue";
+    import { Octokit } from "@octokit/core";
 
     const userData: any = inject("userData");
     const router = useRouter();
     const contactList = computed(() => [
         {
             title: userData?.value?.phone_number,
-            href: `tel: ${userData?.value?.phone_number}`,
+            href: `tel:${userData?.value?.phone_number}`,
             icon: PhoneIcon,
         },
         {
-            title: userData.value?.email,
-            href: `mailto: ${userData?.value?.email}`,
+            title: userData?.value?.email,
+            href: `mailto:${userData?.value?.email}`,
             icon: MailIcon,
         },
     ]);
+
+    const octokit = new Octokit({
+        auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
+    });
+
+    const onClick = async () => {
+        try {
+            const repoOwner = "roman-zelenskiy";
+            const repoName = "new_portfolio";
+            const filePath = "src/data/test.json";
+            const fileContent = JSON.stringify({
+                first_name: "Roman",
+                full_name: "Roman Zelenskyi",
+                abbr: "RZ",
+                country: "Ukraine", // Исправлено: заменено 'county' на 'country'
+                city: "Sumy",
+                email: "romazelenskiy2000@gmail.com",
+                phone_number: "+380683196434",
+                specialty: "Frontend Developer",
+            });
+
+            // Получаем текущее содержимое файла для получения SHA
+            const {
+                data: { content, sha },
+            } = await octokit.request(`GET /repos/${repoOwner}/${repoName}/contents/${filePath}`);
+
+            // const decodedContent = atob(content);
+            // console.log(decodedContent);
+
+            // Кодируем новое содержимое файла в base64
+            // const newContent = Buffer.from(fileContent).toString("base64");
+            const newContent = btoa(fileContent);
+
+            // Обновляем файл с новым содержимым
+            await octokit.request(`PUT /repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+                owner: repoOwner,
+                repo: repoName,
+                path: filePath,
+                message: "Update file via API",
+                content: newContent,
+                sha: sha,
+            });
+
+            console.log("File updated successfully");
+        } catch (error) {
+            console.error("Error updating file:", error);
+        }
+    };
 
     const onCGotoContact = () => {
         router.push({ name: "Contact" });
@@ -40,9 +89,11 @@
                 <span class="bold_italic">{{ userData?.city }}</span>
             </p>
             <PrimaryButton @click="onCGotoContact()"> Let’s talk with me </PrimaryButton>
+            <!-- <PrimaryButton @click="onClick()"> Update File </PrimaryButton> -->
             <ul class="contact_box">
                 <ContactItem
                     v-for="item in contactList"
+                    :key="item.title"
                     :item="item"
                 ></ContactItem>
             </ul>

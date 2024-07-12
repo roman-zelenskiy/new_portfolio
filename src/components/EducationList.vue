@@ -1,18 +1,20 @@
 <script setup lang="ts">
-    const { education } = defineProps(["education"]);
+    defineProps<{
+        education: any;
+    }>();
 </script>
 
 <template>
     <div class="education">
-        <h5 class="title">{{ education.title }}</h5>
+        <h5 class="title">{{ education?.title }}</h5>
         <ul class="education_list">
-            <li v-for="item in education.list">
-                <p class="name_place">{{ item.name_place }}</p>
-                <p class="specialty">{{ item.specialty }}. {{ item.level }}</p>
-                <p class="study_period">{{ item.study_period }}</p>
+            <li v-for="item in education?.list">
+                <p class="name_place">{{ item?.name_place }}</p>
+                <p class="specialty">{{ item?.specialty }}. {{ item?.level }}</p>
+                <p class="study_period">{{ item?.study_period }}</p>
                 <a
-                    v-if="item.certificate"
-                    :href="item.certificate"
+                    v-if="item?.certificate"
+                    :href="item?.certificate"
                     class="certificate"
                     >Certificate</a
                 >
@@ -25,7 +27,7 @@
     @import "../assets/styles/mixins.scss";
 
     .education {
-        .education_list{
+        .education_list {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -43,7 +45,7 @@
         .specialty {
             font-weight: 500;
         }
-        .study_period{
+        .study_period {
             font-weight: 12px;
             color: rgb(175, 175, 175);
             margin-top: 10px;
@@ -56,7 +58,7 @@
             text-transform: uppercase;
             text-decoration: none;
             margin-top: 5px;
-            &:hover{
+            &:hover {
                 text-decoration: underline;
             }
         }

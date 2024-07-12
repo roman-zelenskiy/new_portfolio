@@ -36,20 +36,20 @@
         <div class="content_box">
             <h5 class="page_title">Contact</h5>
             <p class="text_contact">Reach out me</p>
-            <p class="residence">{{ userData.city }}, {{ userData.county }}</p>
+            <p class="residence">{{ userData?.city }}, {{ userData?.county }}</p>
             <ul class="gmail_phone">
                 <li class="phone_number">
-                    <a :href="`tel: ${userData.phone_number}`">{{ userData.phone_number }} </a>
+                    <a :href="`tel: ${userData?.phone_number}`">{{ userData?.phone_number }} </a>
                 </li>
                 <li class="email">
-                    <a :href="`mailto: ${userData.email}`">
-                        {{ userData.email }}
+                    <a :href="`mailto: ${userData?.email}`">
+                        {{ userData?.email }}
                     </a>
                 </li>
             </ul>
             <ul class="social_networks">
                 <li v-for="item in socialNetworks">
-                    <a :href="item.path">{{ item.title }}</a>
+                    <a :href="item?.path">{{ item?.title }}</a>
                 </li>
             </ul>
         </div>

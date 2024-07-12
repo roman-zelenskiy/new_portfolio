@@ -1,16 +1,17 @@
 <script setup lang="ts">
-    import { inject } from 'vue';
-    const isShowNavigation: any = inject<boolean>('isShowNavigation');
-    const switchNavigation: any = inject<(value: boolean) => void>('switchNavigation');
+    defineProps<{
+        active: boolean;
+    }>();
+    const emits = defineEmits(["switchNavigation"]);
     const onClickButton = () => {
-        switchNavigation(!isShowNavigation.value);
+        emits("switchNavigation");
     };
 </script>
 
 <template>
     <button
         class="btn_burger"
-        :class="{ active: isShowNavigation }"
+        :class="{ active: active }"
         @click="onClickButton"
     >
         <span> </span>

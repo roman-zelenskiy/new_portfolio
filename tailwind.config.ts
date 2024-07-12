@@ -7,6 +7,8 @@ export default <Partial<Config>>{
     content: [
         "./index.html",
         "./src/**/*.{vue,js,ts,jsx,tsx}",
+            'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx,vue}',
+    'node_modules/flowbite/**/*.{js,jsx,ts,tsx}'
     ],
     theme: {
         screens: {
@@ -42,5 +44,6 @@ export default <Partial<Config>>{
         typography,
         forms,
         aspectRatio,
+        require('flowbite/plugin')
     ],
 }

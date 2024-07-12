@@ -9,7 +9,7 @@
         <p class="page_title">My experience</p>
         <ul class="experience_list">
             <ExperienceItem
-                v-for="item in userData.experience"
+                v-for="item in userData?.experience"
                 :experience="item"
             ></ExperienceItem>
         </ul>

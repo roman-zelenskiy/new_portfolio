@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { inject, watch } from "vue";
-    import ButtonOpacityClose from "./ButtonOpacityClose.vue";
+    import ButtonClose from "./ButtonClose.vue";
     import { register } from "swiper/element/bundle";
     register();
 
@@ -32,10 +32,10 @@
             v-if="modelValue"
             class="fixed w-full h-full flex justify-between py-[50px] flex-col items-center z-[200] bg-white-transparent top-0 left-0"
         >
-            <ButtonOpacityClose
+            <ButtonClose
                 @click="updateValue(false)"
-                class="self-end mr-[5%]"
-            ></ButtonOpacityClose>
+                class="self-end hover_opacity mr-[5%]"
+            ></ButtonClose>
 
             <div class="w-[95%] md:w-[100%] flex-1 flex justify-center items-center">
                 <swiper-container

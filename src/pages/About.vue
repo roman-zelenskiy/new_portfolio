@@ -3,7 +3,7 @@
     import { PhoneIcon, PlaceIcon, UserIcon, MailIcon } from "../assets/img/svg";
     import ContactItem from "../components/ContactItem.vue";
     import EducationList from "../components/EducationList.vue";
-    import BtnDownloadCv from "../components/BtnDownloadCv.vue";
+    import BtnDownloadCv from "../components/common/BtnDownloadCv.vue";
 
     const userData: Ref<any> | undefined | any = inject("userData");
     const contactList = computed(() => [
@@ -17,12 +17,12 @@
             icon: UserIcon,
         },
         {
-            title: userData?.value.email,
+            title: userData?.value?.email,
             href: `mailto: ${userData?.value?.email}`,
             icon: MailIcon,
         },
         {
-            title: `${userData?.value?.county}, ${userData?.value.city}`,
+            title: `${userData?.value?.county}, ${userData?.value?.city}`,
             icon: PlaceIcon,
         },
     ]);
@@ -39,8 +39,8 @@
         </div>
         <div class="content_box">
             <div class="left_box">
-                <EducationList :education="userData.education"></EducationList>
-                <EducationList :education="userData.courses"></EducationList>
+                <EducationList :education="userData?.education"></EducationList>
+                <EducationList :education="userData?.courses"></EducationList>
             </div>
             <div class="right_box">
                 <ul class="contact_list">
@@ -51,12 +51,12 @@
                 </ul>
                 <div class="skills">
                     <h5 class="italic_text">Skills</h5>
-                    <p class="skills_list">{{ userData.skills }}</p>
+                    <p class="skills_list">{{ userData?.skills }}</p>
                 </div>
                 <div class="languages">
                     <h5 class="italic_text">Languages</h5>
                     <ul class="languages_list">
-                        <li v-for="language in userData.languages">{{ language }}</li>
+                        <li v-for="language in userData?.languages">{{ language }}</li>
                     </ul>
                 </div>
             </div>

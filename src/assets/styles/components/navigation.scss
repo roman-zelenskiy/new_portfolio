@@ -7,7 +7,7 @@
     position: fixed;
     height: 100%;
     overflow: scroll;
-    gap: 60px;
+
     left: -110%;
     padding: 56px 48px;
     box-sizing: border-box;
@@ -27,6 +27,14 @@
     &.active{
         left: 0;
     }
+}
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 60px;
+   position: relative;
 }
 
 .top_sec_nav{
