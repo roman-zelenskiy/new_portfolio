@@ -8,7 +8,7 @@
     const email = ref<string>("");
     const message = ref<string>("");
 
-    const TOKEN = ref("5650221213:AAEWsB7PAe03nW4hmchD3zhYBMSNDkA4Gs8");
+    const TOKEN = computed(() => import.meta.env.VITE_TELEGRAM_BOT_TOKEN);
     const messageToTelegram = computed(
         () =>
             `<b>Сообщение с сайта портфолио!</b>\n <b>Имя отправителя: </b>${name.value}\n <b>Почта отправителя: </b>${email.value}\n <b>Сообщение: </b>${message.value}`

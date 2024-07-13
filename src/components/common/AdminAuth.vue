@@ -29,6 +29,8 @@
 
     const auth = () => {
         if (inputKey.value !== validKey) {
+            console.log(validKey);
+            console.log(inputKey.value);
             error.value = "Wrong key!";
             return false;
         }
