@@ -3,7 +3,7 @@ import { createWebHashHistory, createRouter } from 'vue-router';
 
 
 export const router = createRouter({
-    history: createWebHashHistory('/new_portfolio/'),
+    history: createWebHashHistory(import.meta.env.VITE_BASE_URL + '/'),
     routes,
 });
 
