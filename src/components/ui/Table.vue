@@ -7,7 +7,6 @@
         items: TableItemTd[][];
     }>();
 
-    const emits = defineEmits(["actionGetList"]);
 
     const headers = computed(() =>
         props.items?.length > 0
