@@ -81,33 +81,40 @@
     ],
     "works": [
         {
+            "id": 1,
             "title": "Clickwerk",
             "type": "Ocean Script project",
             "link": "https://clickwerk.eu/",
             "img": "./img/clickwerk.webp",
             "technologies": "HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Pinia, I18n, Git, Github",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 2,
             "title": "Ukrainemart",
             "type": "Ocean Script project",
             "link": "https://ukrainemart.com/",
             "img": "./img/ukrainemart.webp",
             "technologies": "HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Pinia, I18n, Git, Github",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 3,
             "title": "Size CRM",
             "type": "Ocean Script project",
             "link": "https://size-crm.com/",
             "img": "./img/size_crm.webp",
             "technologies": "HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Pinia, Git, Github",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 4,
             "title": "Olimpia CRM",
             "type": "Ocean Script project",
             "link": null,
@@ -120,27 +127,33 @@
                 "./img/olimpia_crm/image_4.png",
                 "./img/olimpia_crm/image_5.png"
             ],
-            "typeShow": "images"
+            "typeShow": "images",
+            "visible": true
         },
         {
+            "id": 5,
             "title": "Web agency Ocean Script",
             "type": "Ocean Script project",
             "link": "https://ocean-script.com/",
             "img": "./img/ocean_script.webp",
             "technologies": "HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Git, Github",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 6,
             "title": "ELRITECH//",
             "type": "Ocean Script project",
             "link": "https://roman-zelenskiy.github.io/elritech/",
             "img": "./img/elritech.webp",
             "technologies": "HTML, CSS, JavaScript, TypeScript, Tailwind, Vue, Nuxt, Git, Github",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 7,
             "title": "Kuzka-shop",
             "type": "Ocean Script project",
             "link": "https://kuzka-shop.com/",
@@ -159,9 +172,11 @@
                 "./img/kuzka_shop/image_10.png",
                 "./img/kuzka_shop/image_11.png"
             ],
-            "typeShow": "images"
+            "typeShow": "images",
+            "visible": true
         },
         {
+            "id": 8,
             "title": "CRM Galcontract",
             "type": "Ocean Script project",
             "link": null,
@@ -178,178 +193,217 @@
                 "./img/galcontract/image_7.png",
                 "./img/galcontract/image_8.png"
             ],
-            "typeShow": "images"
+            "typeShow": "images",
+            "visible": true
         },
         {
+            "id": 9,
             "title": "Hector",
             "type": "Test task",
             "link": "https://roman-zelenskiy.github.io/galaxy_it_test/",
             "img": "./img/hector.webp",
             "technologies": "HTML, SCSS, Gulp, JavaScript",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 10,
             "title": "Online zoo",
             "type": "Study project",
             "link": "https://roman-zelenskiy.github.io/online_zoo/",
             "img": "./img/online_zoo.webp",
             "technologies": "HTML, CSS, JavaScript",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 11,
             "title": "Furniture",
             "type": "Test task",
             "link": "https://roman-zelenskiy.github.io/furniture_test/",
             "img": "./img/furniture_test.webp",
             "technologies": "HTML, CSS",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 12,
             "title": "Leader energy",
             "type": "Study project",
             "link": "https://roman-zelenskiy.github.io/Leader_NRG_Ukraine/",
             "img": "./img/leader_energy.webp",
             "technologies": "HTML, CSS, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 13,
             "title": "Notes App",
             "type": "Test task",
             "link": "https://roman-zelenskiy.github.io/test_todo_vue/",
             "img": "./img/todo_project.webp",
             "technologies": "HTML, SCSS, Vue, Pinia, LocalStorage",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 14,
             "title": "Robogptskills",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/robogptskills/",
             "img": "./img/Robogptskills.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 15,
             "title": "Business Founds",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/businesfounds/",
             "img": "./img/BUSINESFOUNDS.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 16,
             "title": "App PHP Course",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/appphpcourse/",
             "img": "./img/APPPHPCOURSE.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 17,
             "title": "Real-World Product Management",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/real-worldproductmanagement/",
             "img": "./img/REAL_WORLDPRODUCTMANAGEMENT.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 18,
             "title": "Marketer Course",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/marketercourse/",
             "img": "./img/MarketerCourse.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 19,
             "title": "Manage-Security",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/manage-security/",
             "img": "./img/MANAGE_SECURITY.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 20,
             "title": "Ibm-Certificate",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/ibm-certificate/",
             "img": "./img/IBM_CERTIFICATE.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 21,
             "title": "HtmlCssJs-Course",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/htmlcssjava-course/",
             "img": "./img/HTMLCSSJAVA_COURSE.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 22,
             "title": "Game design Uniti",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/game-designuniti/",
             "img": "./img/Game_designuniti.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 23,
             "title": "Fast Learning Course",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/fastlearningcourse/",
             "img": "./img/FASTLEARNINGCOURSE.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 24,
             "title": "Biovoic",
             "type": "Study project",
             "link": "https://roman-zelenskiy.github.io/biovoid/",
             "img": "./img/biovoic.webp",
             "technologies": "HTML, CSS, JavaScript",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 25,
             "title": "BakeryBo",
             "type": "Study project",
             "link": "https://roman-zelenskiy.github.io/bakery_bo/",
             "img": "./img/bakery_bo.webp",
             "technologies": "HTML, CSS, JavaScript",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 26,
             "title": "Using-Excel",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/using-excel/",
             "img": "./img/USING_EXCEL.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         },
         {
+            "id": 27,
             "title": "Start Develop Top",
             "type": "Freelance project",
             "link": "https://roman-zelenskiy.github.io/startdeveloptop/",
             "img": "./img/STARTDEVELOPTOP.png",
             "technologies": "HTML, SCSS, Gulp, Bootstrap",
             "images": [],
-            "typeShow": "link"
+            "typeShow": "link",
+            "visible": true
         }
     ]
 }

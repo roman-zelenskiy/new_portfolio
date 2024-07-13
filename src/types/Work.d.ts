@@ -1,4 +1,5 @@
 declare interface Work {
+    id: number;
     title: string,
     type: string,
     link: string,
@@ -6,4 +7,5 @@ declare interface Work {
     technologies: string,
     images: string[],
     typeShow: 'images' | 'link',
+    visible: boolean;
 }
