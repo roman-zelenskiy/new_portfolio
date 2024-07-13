@@ -2,7 +2,7 @@
 
 export async  function useAsyncUpdateData(newUserData: any) {
         const octokit = new Octokit({
-        auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
+        auth: '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',
     });
 
 

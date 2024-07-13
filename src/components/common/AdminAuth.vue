@@ -9,7 +9,7 @@
 
     const router = useRouter();
     const authStore = useAuthStore();
-    const validKey = import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB;
+    const validKey = import.meta.env.VITE_ADMIN_PASSWORD;
 
     const isShowModal = ref(false);
     const inputKey = ref("");

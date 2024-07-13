@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('auth', () => {
-    const validKey = import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB;
+    const validKey = import.meta.env.VITE_ADMIN_PASSWORD;
 
     const getAdminKey = () => {
         return localStorage.getItem("admin_key");
