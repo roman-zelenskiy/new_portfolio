@@ -1,15 +1,13 @@
 <script setup lang="ts">
-    import { ref, provide } from "vue";
+    import { ref, provide, toRef } from "vue";
+    import userData from "../src/data/userData.json";
 
-    const userData = ref();
-    const socialNetworks = ref([]);
+    // const userData = ref();
+    const socialNetworks = ref<any[]>([]);
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch("/new_portfolio" + "/src/data/userData.json");
-            const dataParse = await response.json();
-            userData.value = dataParse;
-            socialNetworks.value = dataParse.social_networks;
+            socialNetworks.value = userData.social_networks || [];
         } catch (error) {
             console.log(error);
         }
@@ -17,7 +15,7 @@
 
     fetchUserData();
 
-    provide("userData", userData);
+    provide("userData", toRef(userData));
     provide("socialNetworks", socialNetworks);
 </script>
 
