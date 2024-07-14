@@ -1,0 +1,99 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.home_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    .content_box {
+        order: 1;
+    }
+    .title_home {
+        @include adaptive_font(90, 45, $widthResponsePX);
+        text-transform: uppercase;
+        color: $darkColor;
+        position: relative;
+        z-index: 2;
+    }
+    .specialty {
+        @include adaptive_font(38, 28, $widthResponsePX);
+        margin: 25px 0 48px 0;
+        color: $darkColor;
+    }
+    .contact_box {
+        margin-top: 64px;
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+    }
+    .name_photo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .photo_box {
+        width: 100%;
+        // max-width: 450px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: $BPSmall) {
+    .home_page {
+        .contact_box {
+            margin-top: 64px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            gap: 48px;
+        }
+    }
+}
+
+
+@media screen and (min-width: $BPSmallPC) {
+    .home_page {
+        align-self: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .contact_box {
+            justify-content: space-between;
+        }
+        .photo_box {
+            min-width: 450px;
+            width: auto;
+        }
+
+        .content_box {
+            max-width: 560px;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: $BPExtraHorizontalPC) {
+    .home_page {
+        .content_box {
+            order: 0;
+        }
+    }
+}
+
+@media screen and (min-width: $BPExtraHorizontalPCLarge) {
+    .home_page {
+        .title {
+            @include adaptive_font(100, 45, $widthResponsePX);
+        }
+        .content_box {
+            max-width: 615px;
+            width: 100%;
+        }
+        .photo_box {
+            min-width: 550px;
+        }
+    }
+}

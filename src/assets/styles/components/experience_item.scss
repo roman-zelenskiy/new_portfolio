@@ -1,0 +1,163 @@
+@import "../mixins.scss";
+.experience_item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $lineBackground;
+    padding: 24px 0;
+    transition: 0.3s;
+    overflow: hidden;
+    .btn_open {
+        background: none;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $darkColor;
+        gap: 10px;
+        padding-left: 25px;
+        background: #ffffff;
+        position: relative;
+        cursor: pointer;
+        z-index: 5;
+        &:focus {
+            outline: none;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            transition: 0.3s;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $darkColor;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            left: 0;
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .position {
+        font-weight: 700;
+        @include adaptive_font(32, 20, $widthResponsePX);
+        color: $darkColor;
+        position: relative;
+        text-align: left;
+        @include gradientTextTransition(0.3s, ease, $darkColor);
+    }
+    .information {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        .organization {
+            @include adaptive_font(16, 14, $widthResponsePX);
+            font-weight: 500;
+            color: $darkColor;
+        }
+        .work_period {
+            @include adaptive_font(18, 16, $widthResponsePX);
+            font-weight: 600;
+            color: $darkColor;
+            font-style: italic;
+        }
+    }
+    .icon {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        position: relative;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: $darkColor;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto 0;
+            transition: 0.3s;
+        }
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+    .description_box {
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        .text {
+            padding: 15px 25px 0 25px;
+            p {
+                @include adaptive_font(16, 14, $widthResponsePX);
+                font-weight: 400;
+                line-height: 120%;
+            }
+            .technologies{
+                font-weight: 500;
+            }
+            .link{
+                font-weight: 500;
+                font-style: italic;
+                margin-top: 10px;
+                color: $darkColor;
+                display: inline-block;
+            }
+        }
+        .description{
+            margin-top: 15px;
+        }
+    }
+    &.active {
+        .btn_open {
+            &::before {
+                background-color: $firstColorGradient;
+            }
+        }
+        .icon {
+            &::after {
+                transform: rotate(0deg);
+            }
+        }
+        .description_box {
+            max-height: 1000px;
+        }
+        .position {
+            background-position: top left 100%;
+        }
+    }
+}
+
+@media screen and (min-width: $BPSmallPC) {
+    .experience_item {
+        .icon {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+
+@media screen and (min-width: $BPMediumPC) {
+    .experience_item {
+        .content {
+            flex-direction: row;
+            justify-content: space-between;
+            flex-grow: 1;
+            .position{
+                flex-basis: 100%;
+                flex-grow: 1;
+                max-width: 60%;
+            }
+            .information{
+                flex-basis: auto;
+                flex-grow: 1;
+            }
+        }
+    }
+}

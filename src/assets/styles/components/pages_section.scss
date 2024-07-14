@@ -1,0 +1,96 @@
+@import '../variables.scss';
+.scrollbar__wrapper .scrollbar__thumb {
+    background-color: rgb(116, 116, 116);
+}
+.scrollbar__thumbPlaceholder--horizontal {
+    height: 0px;
+}
+
+.pages_section {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px;
+    height: 100vh;
+    .burger_box {
+        text-align: end;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: $backgroundBurgerSection;
+        height: 60px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 9;
+    }
+    .btn_burger {
+        border: none;
+        background: none;
+        position: relative;
+        width: 28px;
+        height: 22px;
+        transition: 0.3s;
+        margin-right: 15px;
+        cursor: pointer;
+        & span {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            border-radius: 20px;
+            background-color: $backgroundBurgerBtn;
+            left: 0;
+            transition: 0.3s;
+        }
+        & span:nth-child(1) {
+            top: 0;
+        }
+        & span:nth-child(2) {
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+        & span:nth-child(3) {
+            bottom: 0;
+        }
+        &.active {
+            width: 35px;
+        }
+        &.active span:nth-child(1) {
+            transform: rotate(-30deg);
+            top: 5px;
+            width: 58%;
+            left: -1px;
+        }
+        &.active span:nth-child(3) {
+            transform: rotate(30deg);
+            bottom: 5px;
+            width: 58%;
+            left: -1px;
+        }
+    }
+    .page_box {
+        flex-grow: 1;
+        padding: 60px 0;
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        margin-top: 40px;
+    }
+}
+
+
+@media screen and (min-width: $BPSmallPC) {
+    .pages_section {
+        padding: 0px 30px;
+        .burger_box {
+            display: none;
+        }
+        .page_box {
+            margin-top: 0px;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}

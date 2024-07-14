@@ -1,0 +1,194 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.contact_page {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    flex-grow: 1;
+    gap: 50px;
+    .form_box {
+        width: 100%;
+        max-width: 770px;
+        background: $mainBackground;
+        align-self: center;
+        box-sizing: border-box;
+        padding: 25px 30px;
+        .title_form {
+            color: #ffffff;
+            @include adaptive_font(42, 26, $widthResponsePX);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .form_wrap {
+            display: flex;
+            flex-direction: column;
+            .input_box {
+                input,
+                textarea {
+                    @include adaptive_font(18, 14, $widthResponsePX);
+                    font-weight: 500;
+                    background: transparent;
+                    border: none;
+                    padding: 10px;
+                    color: #ffffff;
+                    border-bottom: 1px solid #ffffff;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                input::placeholder,
+                textarea::placeholder {
+                    text-transform: uppercase;
+                    color: #ffffff;
+                }
+                input {
+                    flex-grow: 1;
+                }
+                .message {
+                    width: 100%;
+                    height: 70px;
+
+                    &::-webkit-scrollbar {
+                        width: 0;
+                    }
+                }
+                margin-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            .send_btn {
+                align-self: center;
+                margin-top: 30px;
+            }
+        }
+    }
+    .content_box {
+        align-self: flex-start;
+        .page_title {
+            @include title_page();
+        }
+        .text_contact {
+            @include adaptive_font(50, 32, $widthResponsePX);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+        .residence {
+            margin-top: 20px;
+            @include adaptive_font(18, 16, $widthResponsePX);
+        }
+        .gmail_phone {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            li a {
+                @include adaptive_font(34, 16, $widthResponsePX);
+                font-weight: 700;
+                text-decoration: none;
+                color: $darkColor;
+            }
+        }
+        .social_networks {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+            li a {
+                text-transform: uppercase;
+                text-decoration: none;
+                color: $darkColor;
+                font-weight: 500;
+                @include adaptive_font(26, 18, $widthResponsePX);
+                position: relative;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    width: 0%;
+                    height: 2px;
+                    background: $darkColor;
+                    left: 50%;
+                    transition: 0.3s;
+                }
+                &:hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $BPSmall) {
+    .contact_page .content_box {
+        .social_networks {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+    .contact_page .form_box .form_wrap {
+        .send_btn {
+            align-self: flex-start;
+        }
+        .input_box {
+            margin-top: 40px;
+            gap: 45px;
+        }
+    }
+}
+
+@media screen and (min-width: $BPSmallPC) {
+    .contact_page {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        .content_box {
+            align-self: center;
+            .residence {
+                margin-top: 30px;
+            }
+            .gmail_phone {
+                margin-top: 90px;
+                gap: 20px;
+            }
+            .social_networks {
+                margin-top: 80px;
+            }
+        }
+        .form_box {
+            padding: 64px 85px;
+            .form_wrap {
+                .input_box {
+                    margin-top: 50px;
+                }
+                .send_btn {
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $BPExtraHorizontalPC) {
+    .contact_page {
+        .form_box {
+            max-width: 480px;
+        }
+    }
+}
+
+@media screen and (min-width: $BPExtraHorizontalPCLarge) {
+    .contact_page {
+        .form_box {
+            max-width: 640px;
+            .form_wrap .input_box input {
+                width: 40%;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+    * {
+        line-height: 100%;
+    }
+}
+
+@layer utilities {
+    .hover_opacity {
+        @apply duration-hover hover:opacity-hover;
+    }
+}

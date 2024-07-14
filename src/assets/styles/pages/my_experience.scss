@@ -1,0 +1,25 @@
+@import "../mixins.scss";
+
+.my_experience_page {
+    flex-grow: 1;
+    .page_title {
+        @include title_page();
+    }
+    .experience_list {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: $BPSmallPC) {
+    .my_experience_page {
+        max-width: 1235px;
+        width: 100%;
+        align-self: center;
+        .page_title {
+            @include title_page();
+        }
+        .experience_list {
+            margin-top: 50px;
+        }
+    }
+}
