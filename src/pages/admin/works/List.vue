@@ -19,6 +19,12 @@
             {
                 title: "Title",
                 content: el?.title,
+                type: "image",
+                link: el?.img
+            },
+            {
+                title: "Title",
+                content: el?.title,
                 type: "title",
             },
             {

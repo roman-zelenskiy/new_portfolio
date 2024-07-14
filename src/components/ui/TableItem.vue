@@ -1,34 +1,33 @@
 <script setup lang="ts">
-import {computed, ref} from "vue";
-import TableItem from "./TableItem.vue";
-import { cn } from "../../utils";
+    import { computed, ref } from "vue";
+    import TableItem from "./TableItem.vue";
+    import { cn } from "../../utils";
 
-const props = defineProps<{
-    item: TableItemTd[];
-    childrenColor?: boolean;
-    thirdNestingColor?: boolean;
-}>();
+    const props = defineProps<{
+        item: TableItemTd[];
+        childrenColor?: boolean;
+        thirdNestingColor?: boolean;
+    }>();
 
-const isChildrenElements = ref<boolean>(false);
+    const isChildrenElements = ref<boolean>(false);
 
-const changeChildrenElements = (value: boolean) => {
-    isChildrenElements.value = value;
-};
+    const changeChildrenElements = (value: boolean) => {
+        isChildrenElements.value = value;
+    };
 
-const getChildren = computed(() => {
-    let result: any[] = [];
+    const getChildren = computed(() => {
+        let result: any[] = [];
 
-    for (let el of props.item) {
-        if (el.type === "children") {
-            result = el.children || [];
-            break;
+        for (let el of props.item) {
+            if (el.type === "children") {
+                result = el.children || [];
+                break;
+            }
+            result = [];
         }
-        result = [];
-    }
 
-    return result;
-});
-
+        return result;
+    });
 </script>
 
 <template>
@@ -40,10 +39,10 @@ const getChildren = computed(() => {
     >
         <td
             v-for="td in item"
-            class="py-4 px-[10px] text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400"
+            class="py-4 px-[10px] text-sm font-normal align-middle text-gray-500 whitespace-nowrap dark:text-gray-400"
         >
             <img
-                class="max-w-[200px] object-cover min-w-[200px] h-[133px]"
+                class="w-[70px] h-[40px] border-solid border-[1px] md:border-[2px] border-gray-400 rounded-[10px] object-cover"
                 v-if="td.type === 'image'"
                 :src="td.link"
                 :alt="td.content"
@@ -60,7 +59,8 @@ const getChildren = computed(() => {
                                 'bg-gray-500': el.checkNotActive,
                                 'bg-red-500': el.checkDanger && !el.checkNotActive,
                                 'bg-yellow-300': el.checkWarning && !el.checkDanger && !el.checkNotActive,
-                                'bg-green-500': el.checkSuccess && !el.checkWarning && !el.checkDanger && !el.checkNotActive,
+                                'bg-green-500':
+                                    el.checkSuccess && !el.checkWarning && !el.checkDanger && !el.checkNotActive,
                             })
                         "
                     ></span>
@@ -85,18 +85,16 @@ const getChildren = computed(() => {
                 {{ td.content }}
             </span>
             <a
-                :class="
-                    cn(
-                        'font-semibold truncate max-w-[200px] inline-block underline text-black',
-                        td.styles
-                    )
-                "
+                :class="cn('font-semibold truncate max-w-[200px] inline-block underline text-black', td.styles)"
                 v-if="td.type === 'link'"
                 :href="td.link"
             >
                 {{ td.content }}
             </a>
-            <div v-if="td.type === 'actions'" :class="cn('', td.styles)">
+            <div
+                v-if="td.type === 'actions'"
+                :class="cn('', td.styles)"
+            >
                 <button
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                     :class="action.styles"
