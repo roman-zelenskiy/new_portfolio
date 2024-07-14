@@ -28,6 +28,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Use variables
+      env:
+        VITE_ADMIN_PASSWORD: ${{ vars.VITE_ADMIN_PASSWORD }}
+        VITE_BASE_URL: ${{ vars.VITE_BASE_URL }}
+        VITE_TELEGRAM_BOT_TOKEN: ${{ vars.VITE_TELEGRAM_BOT_TOKEN }}
+        VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ vars.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
+
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set up Node
