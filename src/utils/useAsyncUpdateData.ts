@@ -5,6 +5,7 @@ export async  function useAsyncUpdateData(newUserData: any) {
         auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
     });
 
+    console.log(import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
 
     try {
         const repoOwner = "roman-zelenskiy";
