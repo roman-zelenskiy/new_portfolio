@@ -1,38 +1,38 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main  # ваша основная ветка, например, main или master
+    push:
+        branches:
+            - main # ваша основная ветка, например, main или master
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-      - name: Set up Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+            - name: Set up Node.js environment
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "14"
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build
-        run: npm run build  # замените на команду, которая собирает ваш проект
+            - name: Build
+              run: npm run build # замените на команду, которая собирает ваш проект
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # замените на директорию, в которой находятся файлы для развёртывания
-          publish_branch: gh-pages  # ветка, в которую будет производиться развёртывание
-          cname: your-custom-domain.com  # необязательно, если используете собственный домен
-          env:
-            VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
-            VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-            VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
-            VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist # замените на директорию, в которой находятся файлы для развёртывания
+                  publish_branch: gh-pages # ветка, в которую будет производиться развёртывание
+                  cname: your-custom-domain.com # необязательно, если используете собственный домен
+                  env:
+                      VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
+                      VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+                      VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
+                      VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
