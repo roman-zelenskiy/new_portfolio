@@ -5,14 +5,9 @@ on:
     branches:
       - main
 
-  workflow_dispatch:
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -21,17 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '14' # Укажите актуальную версию Node.js
 
       - name: Install dependencies
         run: npm install
-
-      - name: Set environment variables
-        run: |
-          echo "VITE_ADMIN_PASSWORD=${{ secrets.VITE_ADMIN_PASSWORD }}" >> $GITHUB_ENV
-          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> $GITHUB_ENV
-          echo "VITE_TELEGRAM_BOT_TOKEN=${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}" >> $GITHUB_ENV
-          echo "VITE_PERSONAL_ACCESS_TOKEN_GITHUB=${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}" >> $GITHUB_ENV
 
       - name: Build
         run: npm run build
@@ -39,6 +27,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
