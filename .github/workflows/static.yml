@@ -1,38 +1,46 @@
-name: Deploy to GitHub Pages
+name: Deploy static content to Pages
 
 on:
-    push:
-        branches:
-            - main # ваша основная ветка, например, main или master
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - main  # замените на вашу основную ветку, например, main или master
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-            - name: Set up Node.js environment
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "14"
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-            - name: Install dependencies
-              run: npm install
+      - name: Install dependencies
+        run: npm install
 
-            - name: Build
-              run: npm run build # замените на команду, которая собирает ваш проект
+      - name: Set environment variables
+        run: |
+          echo "VITE_ADMIN_PASSWORD=${{ secrets.VITE_ADMIN_PASSWORD }}" >> $GITHUB_ENV
+          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> $GITHUB_ENV
+          echo "VITE_TELEGRAM_BOT_TOKEN=${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}" >> $GITHUB_ENV
+          echo "VITE_PERSONAL_ACCESS_TOKEN_GITHUB=${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}" >> $GITHUB_ENV
 
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v4
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./dist # замените на директорию, в которой находятся файлы для развёртывания
-                  publish_branch: gh-pages # ветка, в которую будет производиться развёртывание
-                  cname: your-custom-domain.com # необязательно, если используете собственный домен
-                  env:
-                      VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
-                      VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-                      VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
-                      VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
+      - name: Build
+        run: npm run build  # замените на команду, которая собирает ваш проект
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # замените на директорию, в которой находятся файлы для развёртывания
+          publish_branch: gh-page
