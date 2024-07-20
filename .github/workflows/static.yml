@@ -61,7 +61,7 @@ jobs:
           git config --global user.email "actions@github.com"
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: gh-pages -d dist --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/<OWNER>/<REPOSITORY>.git
 
       - name: Debug ENV variables
         run: |
