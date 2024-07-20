@@ -29,20 +29,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.ACTIONS_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-      - name: Setup .env file
-        run: |
-          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> .env
-          echo "VITE_ADMIN_PASSWORD=${{ secrets.VITE_ADMIN_PASSWORD }}" >> .env
-          echo "VITE_TELEGRAM_BOT_TOKEN=${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}" >> .env
-          echo "VITE_PERSONAL_ACCESS_TOKEN_GITHUB=${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}" >> .env
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -61,7 +47,7 @@ jobs:
           git config --global user.email "actions@github.com"
 
       - name: Deploy to GitHub Pages
-        run: gh-pages -d dist --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/roman-zelenskiy/new_portfolio.git
+        run: npm run deploy
 
       - name: Debug ENV variables
         run: |
