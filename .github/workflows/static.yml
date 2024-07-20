@@ -53,9 +53,8 @@ jobs:
       - name: Deploy to GitHub Pages
         run: npx gh-pages -d dist --repo https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git --branch gh-pages
 
-      - name: Debug ENV variables
+      - name: Create Pull Request
         run: |
-          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}"
-          echo "VITE_ADMIN_PASSWORD=${{ secrets.VITE_ADMIN_PASSWORD }}"
-          echo "VITE_TELEGRAM_BOT_TOKEN=${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}"
-          echo "VITE_PERSONAL_ACCESS_TOKEN_GITHUB=${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}"
+          gh pr create --base gh-pages --head gh-pages --title "Deploy to GitHub Pages" --body "Automated deployment via GitHub Actions"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
