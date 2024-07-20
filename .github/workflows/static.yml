@@ -47,10 +47,11 @@ jobs:
           git config --global user.email "actions@github.com"
           git remote set-url origin https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git
 
+      - name: Install gh-pages
+        run: npm install gh-pages --save-dev
+
       - name: Deploy to GitHub Pages
-        run: |
-          gh-pages -d dist --repo https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git
-          gh pr create --base gh-pages --head gh-pages --title "Deploy to GitHub Pages" --body "Automated deployment via GitHub Actions"
+        run: npx gh-pages -d dist --repo https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git
 
       - name: Debug ENV variables
         run: |
