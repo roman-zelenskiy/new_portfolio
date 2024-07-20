@@ -1,15 +1,9 @@
 import { Octokit } from "@octokit/core";
-import { createTokenAuth } from "@octokit/auth-token";
-
 
 export async function useAsyncUpdateData(newUserData: any) {
-    const auth = createTokenAuth(import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
-    const authentication = await auth();
-
-    console.log(authentication);
-
-
-    const octokit = new Octokit(authentication);
+    const octokit = new Octokit({
+        auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
+    });
 
     try {
         const repoOwner = "roman-zelenskiy";
