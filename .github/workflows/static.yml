@@ -53,3 +53,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist
+
+    - name: Log deployment status
+      run: echo "Deployment completed at $(date)"
