@@ -3,7 +3,7 @@ import { createTokenAuth } from "https://esm.sh/@octokit/auth-token";
 
 
 export async function useAsyncUpdateData(newUserData: any) {
-    const auth = createTokenAuth(import.meta.env.VITE_PERSONAL_ACCESgitS_TOKEN_GITHUB);
+    const auth = createTokenAuth(import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
     const authentication = await auth();
 
     console.log(authentication);
