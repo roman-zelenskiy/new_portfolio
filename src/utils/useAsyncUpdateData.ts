@@ -1,5 +1,5 @@
 import { Octokit } from "@octokit/core";
-import { createTokenAuth } from "https://esm.sh/@octokit/auth-token";
+import { createTokenAuth } from "@octokit/auth-token";
 
 
 export async function useAsyncUpdateData(newUserData: any) {
