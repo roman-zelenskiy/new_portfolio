@@ -18,6 +18,12 @@ jobs:
         node-version: [18]
 
     steps:
+    - run: |
+        gh issue --repo ${{ github.repository }} \
+          create --title "Issue title" --body "Issue body"
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Checkout 🛎️
       uses: actions/checkout@v3
 
@@ -34,7 +40,6 @@ jobs:
         VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
         VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
         VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
-        VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v4
