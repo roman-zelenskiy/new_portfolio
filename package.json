@@ -7,7 +7,7 @@
         "dev": "vite",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
-        "build": "vue-tsc && vite build --mode production",
+        "build": "vue-tsc && vite build",
         "preview": "vite preview",
         "lint": "eslint src --ext .ts,.vue"
     },

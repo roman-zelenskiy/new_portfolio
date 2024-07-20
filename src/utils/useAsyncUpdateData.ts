@@ -1,17 +1,9 @@
-    import { Octokit } from "@octokit/core";
+import { Octokit } from "@octokit/core";
 
-export async  function useAsyncUpdateData(newUserData: any) {
-        const octokit = new Octokit({
+export async function useAsyncUpdateData(newUserData: any) {
+    const octokit = new Octokit({
         auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
     });
-
-    console.log(import.meta.env.MODE);
-    console.log(import.meta.env.VITE_ADMIN_PASSWORD);
-    console.log(import.meta.env.VITE_BASE_URL);
-    console.log(import.meta.env.VITE_TELEGRAM_BOT_TOKEN);
-    console.log(import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
-
-
     try {
         const repoOwner = "roman-zelenskiy";
         const repoName = "new_portfolio";
@@ -37,4 +29,4 @@ export async  function useAsyncUpdateData(newUserData: any) {
     } catch (error) {
         console.error("Error updating file:", error);
     }
-  }
+}
