@@ -36,8 +36,7 @@ jobs:
         VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
 
     - name: Deploy 🚀
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        publish_branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist
-        token: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
