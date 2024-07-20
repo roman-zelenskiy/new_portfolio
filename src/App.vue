@@ -7,7 +7,7 @@
     console.log(import.meta.env.VITE_ADMIN_PASSWORD);
     console.log(import.meta.env.VITE_BASE_URL);
     console.log(import.meta.env.VITE_TELEGRAM_BOT_TOKEN);
-    console.log(import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
+    console.log(import.meta.env.GITHUB_TOKEN);
 
     // const userData = ref();
     const socialNetworks = ref<any[]>([]);

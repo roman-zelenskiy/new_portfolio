@@ -23,7 +23,7 @@
     ]);
 
     // const octokit = new Octokit({
-    //     auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
+    //     auth: import.meta.env.GITHUB_TOKEN,
     // });
 
     // const onClick = async () => {

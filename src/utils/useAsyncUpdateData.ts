@@ -2,7 +2,7 @@ import { Octokit } from "@octokit/core";
 
 export async function useAsyncUpdateData(newUserData: any) {
     const octokit = new Octokit({
-        auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
+        auth: import.meta.env.GITHUB_TOKEN,
     });
     try {
         const repoOwner = "roman-zelenskiy";
