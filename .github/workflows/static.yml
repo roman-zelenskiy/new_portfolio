@@ -51,7 +51,7 @@ jobs:
         run: npm install gh-pages --save-dev
 
       - name: Deploy to GitHub Pages
-        run: npx gh-pages -d dist --repo https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git
+        run: npx gh-pages -d dist --repo https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git --branch gh-pages
 
       - name: Debug ENV variables
         run: |
