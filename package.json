@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "vite",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist",
+        "deploy": "gh-pages -d dist --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/<OWNER>/<REPOSITORY>.git",
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
         "lint": "eslint src --ext .ts,.vue"
