@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: write
@@ -35,6 +35,11 @@ jobs:
         VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
         VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
         VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
 
     - name: Deploy 🚀
       run: |
