@@ -1,29 +1,16 @@
-name: Build, Deploy, and Issue
+name: Build and Deploy
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
-  issues: write
 
 jobs:
-  open-issue:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create GitHub Issue
-        run: |
-          gh issue create --repo ${{ github.repository }} \
-            --title "Issue title" --body "Issue body"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   build-and-deploy:
-    if: github.event_name == 'push'
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     strategy:
@@ -53,6 +40,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist
-
-    - name: Log deployment status
-      run: echo "Deployment completed at $(date)"
