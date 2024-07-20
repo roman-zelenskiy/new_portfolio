@@ -1,60 +1,44 @@
-name: Deploy static content to Pages
+name: Build and Deploy
 
 on:
   push:
-    branches: ['main']
-  workflow_dispatch:
+    branches:
+      - master
 
 permissions:
   contents: write
   pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
-    env:
-      VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-      VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
-      VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
-      VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
+    strategy:
+      matrix:
+        node-version: [18]
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - name: Checkout 🛎️
+      uses: actions/checkout@v3
 
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies & Build 🔧
+      run: |
+        npm ci
+        npm run build
+      env:
+        VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+        VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
+        VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.VITE_TELEGRAM_BOT_TOKEN }}
+        VITE_PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
 
-      - name: Build
-        run: npm run build
-
-      - name: Configure git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git
-
-      - name: Install gh-pages
-        run: npm install gh-pages --save-dev
-
-      - name: Deploy to GitHub Pages
-        run: npx gh-pages -d dist --repo https://x-access-token:${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}@github.com/${{ github.repository }}.git --branch gh-pages
-
-      - name: Create Pull Request
-        run: |
-          gh pr create --base gh-pages --head gh-pages --title "Deploy to GitHub Pages" --body "Automated deployment via GitHub Actions"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy 🚀
+      run: |
+        npm install -g gh-pages
+        gh-pages -d dist
+      env:
+        GH_TOKEN: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
