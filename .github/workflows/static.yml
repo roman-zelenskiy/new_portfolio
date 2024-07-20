@@ -1,16 +1,30 @@
-name: Build and Deploy
+name: Build, Deploy, and Issue
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
+  issues: write
 
 jobs:
+  open-issue:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub Issue
+        run: |
+          gh issue create --repo ${{ github.repository }} \
+            --title "Issue title" --body "Issue body"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   build-and-deploy:
+    if: github.event_name == 'push'
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     strategy:
@@ -18,12 +32,6 @@ jobs:
         node-version: [18]
 
     steps:
-    - run: |
-        gh issue --repo ${{ github.repository }} \
-          create --title "Issue title" --body "Issue body"
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Checkout 🛎️
       uses: actions/checkout@v3
 
