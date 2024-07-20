@@ -2,8 +2,9 @@ import { Octokit } from "@octokit/core";
 
 export async function useAsyncUpdateData(newUserData: any) {
     const octokit = new Octokit({
-        auth: process.env.PERSONAL_ACCESS_TOKEN_GITHUB,
+        auth: process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
     });
+
     try {
         const repoOwner = "roman-zelenskiy";
         const repoName = "new_portfolio";
