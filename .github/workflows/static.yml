@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: write
@@ -38,6 +38,6 @@ jobs:
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_branch: gh-pages
-        folder: dist
+        publish_branch: gh-pages
+        publish_dir: dist
         token: ${{ secrets.VITE_PERSONAL_ACCESS_TOKEN_GITHUB }}
