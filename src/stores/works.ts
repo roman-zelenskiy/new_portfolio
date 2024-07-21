@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { computed } from 'vue';
 import {useAsyncUpdateData} from '../utils';
-import userData from "../data/test.json";
+import userData from "../data/userData.json";
 
 
 export const useWorksStore = defineStore('works', () => {
