@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
   });
 
-  log
+  console.log(import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
 
   const { newUserData } = req.body;
 
