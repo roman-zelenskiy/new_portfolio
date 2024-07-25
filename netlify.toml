@@ -1,12 +1,10 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
-  VITE_ADMIN_PASSWORD = "your_admin_password"
-  VITE_PERSONAL_ACCESS_TOKEN_GITHUB = "your_github_token"
-  VITE_TELEGRAM_BOT_TOKEN = "your_telegram_token"
-  NODE_VERSION = "16.x"
+  NODE_VERSION = "16"
 
 [functions]
   node_bundler = "esbuild"
