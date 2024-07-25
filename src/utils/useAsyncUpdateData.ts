@@ -37,6 +37,7 @@ export async function useAsyncUpdateData(newUserData: any) {
           body: JSON.stringify({ newUserData }),
         });
         const data = await response.json();
+        console.log(data);
         console.log(data.message);
       } catch (error) {
         console.error("Error updating file:", error);
