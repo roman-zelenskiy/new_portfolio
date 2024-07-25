@@ -7,7 +7,7 @@
         "dev": "vite",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --dotenv .env.production",
-        "build": "vue-tsc --noEmit && vite build",
+        "build": "vue-tsc --noEmit && vite build --debug",
         "preview": "vite preview",
         "lint": "eslint src --ext .ts,.vue",
         "dev:netlify": "netlify dev"
