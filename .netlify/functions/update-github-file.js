@@ -1,8 +1,9 @@
 import { Octokit } from "@octokit/core";
 import fetch from "node-fetch";
+require('dotenv').config();
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+  auth: process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
   request: {
     fetch: fetch
   }
@@ -41,7 +42,7 @@ export const handler = async function(event, context) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Error updating file", details: error.message })
+      body: JSON.stringify({ error: "Error updating file", details: process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB })
     };
   }
 };

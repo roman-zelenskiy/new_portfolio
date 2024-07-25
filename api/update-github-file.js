@@ -1,14 +1,20 @@
-const { Octokit } = require("@octokit/core");
+import { Octokit } from "@octokit/core";
+import fetch from "node-fetch";
 
-module.exports = async (req, res) => {
-  const octokit = new Octokit({
-    auth: process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
-  });
+// Создание экземпляра Octokit
+const octokit = new Octokit({
+  auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+  request: {
+    fetch: fetch
+  }
+});
 
-  // Логирование токена для проверки (не забудьте убрать в продакшн)
-  console.log("GitHub Token:", process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB);
+export const handler = async function(event, context) {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
 
-  const { newUserData } = req.body;
+  const { newUserData } = JSON.parse(event.body);
 
   try {
     const repoOwner = "roman-zelenskiy";
@@ -16,24 +22,38 @@ module.exports = async (req, res) => {
     const filePath = "src/data/test.json";
     const fileContent = JSON.stringify(newUserData);
 
-    // Проверка наличия файла и получение его SHA
+    console.log(`Requesting file at path: ${filePath}`);
+    console.log(`Repo: ${repoOwner}/${repoName}`);
+
+    // Получение SHA файла
     const { data: { sha } } = await octokit.request(`GET /repos/${repoOwner}/${repoName}/contents/${filePath}`);
 
+    console.log(`Current file SHA: ${sha}`);
+
+    // Кодирование содержимого файла в base64
     const newContent = Buffer.from(fileContent).toString('base64');
 
-    // Обновление содержимого файла
-    await octokit.request(`PUT /repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+    // Обновление файла
+    const response = await octokit.request(`PUT /repos/${repoOwner}/${repoName}/contents/${filePath}`, {
       owner: repoOwner,
       repo: repoName,
       path: filePath,
-      message: "Update file via GitHub Action",
+      message: "Update file via Netlify Function",
       content: newContent,
       sha: sha,
     });
 
-    res.json({ message: "File updated successfully" });
+    console.log(`File updated response: ${JSON.stringify(response)}`);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "File updated successfully" })
+    };
   } catch (error) {
     console.error("Error updating file:", error);
-    res.status(500).json({ error: "Error updating file", details: error.message });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Error updating file", details: error.message })
+    };
   }
 };
