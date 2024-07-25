@@ -1,13 +1,17 @@
 import { Octokit } from "@octokit/core";
+import fetch from "node-fetch";
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+  request: {
+    fetch: fetch
+  }
+});
 
 export const handler = async function(event, context) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
-
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-  });
 
   const { newUserData } = JSON.parse(event.body);
 
