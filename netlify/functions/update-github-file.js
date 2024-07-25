@@ -1,15 +1,14 @@
-const { Octokit } = require("@octokit/core");
+import { Octokit } from "@octokit/core";
 
-exports.handler = async function(event, context) {
-    if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: "Method Not Allowed" };
-      }
+export const handler = async function(event, context) {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
 
-      const { Octokit } = await import("@octokit/core");
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+  });
 
-      const octokit = new Octokit({
-        auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-      });
   const { newUserData } = JSON.parse(event.body);
 
   try {
@@ -38,7 +37,7 @@ exports.handler = async function(event, context) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Error updating file" })
+      body: JSON.stringify({ error: "Error updating file", details: error.message })
     };
   }
 };
