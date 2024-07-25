@@ -9,12 +9,13 @@
         "deploy": "gh-pages -d dist --dotenv .env.production",
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
-        "lint": "eslint src --ext .ts,.vue"
+        "lint": "eslint src --ext .ts,.vue",
+        "dev:netlify": "netlify dev"
     },
     "dependencies": {
+        "@mojojs/core": "^1.20.1",
         "@octokit/auth-token": "^5.1.1",
         "@octokit/core": "^6.1.2",
-        "@mojojs/core": "^1.20.1",
         "@vueuse/core": "^10.7.2",
         "clsx": "^2.0.0",
         "flowbite": "^2.4.1",
