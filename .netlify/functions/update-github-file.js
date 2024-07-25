@@ -19,7 +19,7 @@ export const handler = async function(event, context) {
   try {
     const repoOwner = "roman-zelenskiy";
     const repoName = "new_portfolio";
-    const filePath = "src/data/test.json";
+    const filePath = "src/data/userData.json";
     const fileContent = JSON.stringify(newUserData);
 
     const { data: { sha } } = await octokit.request(`GET /repos/${repoOwner}/${repoName}/contents/${filePath}`);
