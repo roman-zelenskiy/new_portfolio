@@ -2,7 +2,7 @@ const { Octokit } = require("@octokit/core");
 
 module.exports = async (req, res) => {
   const octokit = new Octokit({
-    auth: process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
+    auth: import.meta.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB,
   });
 
   const { newUserData } = req.body;
