@@ -29,7 +29,7 @@ export async function useAsyncUpdateData(newUserData: any) {
     //     console.error("Error updating file:", error);
     // }
     try {
-        const response = await fetch('/.netlify/functions/update-github-file', {
+        const response = await fetch('/netlify/functions/update-github-file', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
