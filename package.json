@@ -7,7 +7,7 @@
         "dev": "vite",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --dotenv .env.production",
-        "build": "vue-tsc && vite build",
+        "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
         "lint": "eslint src --ext .ts,.vue",
         "dev:netlify": "netlify dev"
@@ -51,6 +51,9 @@
         "typescript": "^5.2.2",
         "vite": "^4.4.0",
         "vue-eslint-parser": "^9.3.1",
-        "vue-tsc": "^1.8.3"
+        "vue-tsc": "^2.0.29"
+    },
+    "engines": {
+        "node": ">=16"
     }
 }
