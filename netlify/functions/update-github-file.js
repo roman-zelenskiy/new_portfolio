@@ -1,14 +1,15 @@
 const { Octokit } = require("@octokit/core");
 
 exports.handler = async function(event, context) {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
+    if (event.httpMethod !== "POST") {
+        return { statusCode: 405, body: "Method Not Allowed" };
+      }
 
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-  });
+      const { Octokit } = await import("@octokit/core");
 
+      const octokit = new Octokit({
+        auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+      });
   const { newUserData } = JSON.parse(event.body);
 
   try {
