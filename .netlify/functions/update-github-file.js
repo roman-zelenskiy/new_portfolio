@@ -37,12 +37,12 @@ export const handler = async function(event, context) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "File updated successfully" })
+      body: JSON.stringify({ message: "File updated successfully", status: 1 })
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Error updating file", details: process.env.VITE_PERSONAL_ACCESS_TOKEN_GITHUB })
+      body: JSON.stringify({ error: "Error updating file", status: 0 })
     };
   }
 };

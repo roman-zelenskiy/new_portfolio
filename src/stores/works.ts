@@ -16,7 +16,7 @@ export const useWorksStore = defineStore('works', () => {
       );
 
 
-      const disabledProject = (idProject: number) => {
+    const switchProject = async (idProject: number) => {
         let newUserData = { ...userData };
         newUserData.works = userData.works.map(el => {
             if (el.id === idProject) {
@@ -28,12 +28,13 @@ export const useWorksStore = defineStore('works', () => {
             return el;
         });
 
-        useAsyncUpdateData(newUserData);
+        const response = await useAsyncUpdateData(newUserData);
+        return response;
     };
 
     return {
       allWorks,
       visibleWorks,
-      disabledProject
+      switchProject
     };
   });

@@ -1,12 +1,22 @@
 <script setup lang="ts">
-    import { computed } from "vue";
+    import { computed, ref } from "vue";
     import { useWorksStore } from "../../../stores";
     import Table from "../../../components/ui/Table.vue";
+    import ModalSuccess from "../../../components/common/ModalSuccess.vue";
 
     const worksStore = useWorksStore();
+    const isSuccessUpdateModal = ref(false);
 
-    const disabledProject = (idProject: number) => {
-        worksStore.disabledProject(idProject);
+    const switchSuccessUpdateModal = (value: boolean) => {
+        isSuccessUpdateModal.value = value;
+    };
+
+    const switchProject = async (idProject: number) => {
+        const response = await worksStore.switchProject(idProject);
+
+        if (response.status === 1) {
+            switchSuccessUpdateModal(true);
+        }
     };
 
     function mapList(el: Work) {
@@ -20,7 +30,7 @@
                 title: "Title",
                 content: el?.title,
                 type: "image",
-                link: el?.img
+                link: el?.img,
             },
             {
                 title: "Title",
@@ -45,11 +55,11 @@
                 type: "actions",
                 actions: [
                     {
-                        content: "Disable",
+                        content: el?.visible ? "Disable" : "Enable",
                         action: () => {
-                            disabledProject(el.id);
+                            switchProject(el.id);
                         },
-                        styles: "bg-red-500 hover:bg-red-600",
+                        styles: el?.visible ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600",
                     },
                 ],
             },
@@ -62,6 +72,7 @@
 </script>
 
 <template>
+    <ModalSuccess v-model="isSuccessUpdateModal"></ModalSuccess>
     <Table
         class="mt-[30px]"
         :items="itemsRequests"
