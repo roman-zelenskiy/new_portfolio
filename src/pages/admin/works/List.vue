@@ -43,12 +43,6 @@
                 type: "text",
             },
             {
-                title: "STATUS",
-                content: el?.visible ? "visible" : "hidden",
-                type: "text",
-                styles: `text-white p-[5px] rounded-[5px] ${el?.visible ? "bg-green-400" : "bg-red-400"}`,
-            },
-            {
                 title: "ACTIONS",
                 content: "",
 
