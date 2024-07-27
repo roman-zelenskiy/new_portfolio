@@ -11,8 +11,6 @@
 
   const isChildrenElements = ref<boolean>(false);
 
-  const quantityTableColumn = computed(() => props.item.length);
-
   const changeChildrenElements = (value: boolean) => {
     isChildrenElements.value = value;
   };

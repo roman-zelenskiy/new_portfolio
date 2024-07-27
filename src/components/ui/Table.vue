@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { cn } from '../../utils';
   import TableItem from './TableItem.vue';
-  import { computed, ref, watch } from 'vue';
+  import { computed } from 'vue';
 
   const props = defineProps<{
     items: TableItem[][];
