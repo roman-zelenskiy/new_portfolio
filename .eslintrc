@@ -1,37 +1,67 @@
 {
-    "root": true,
-    "parser": "vue-eslint-parser",
-    "parserOptions": {
-        "parser": "@typescript-eslint/parser"
-    },
-    "extends": [
-        "eslint:recommended",
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.vue"],
+      "plugins": ["@typescript-eslint", "vue", "prettier", "tailwindcss"],
+      "extends": [
+        "plugin:tailwindcss/recommended",
+        "airbnb-base",
+        "airbnb-typescript",
         "plugin:vue/vue3-recommended",
-        "@vue/typescript/recommended",
-        "prettier"
-    ],
-    "plugins": [
-        "@typescript-eslint",
-        "prettier"
-    ],
-    "rules": {
+        "plugin:prettier/recommended"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json",
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".vue"]
+      },
+      "rules": {
         "prettier/prettier": [
-            "error",
-            {
-                "singleQuote": false
-            }
+          "error",
+          {
+            "singleQuote": true,
+            "endOfLine": "crlf"
+          }
         ],
-        "vue/no-multiple-template-root": "off",
-        "vue/component-tags-order": [
-            "error",
-            {
-                "order": [
-                    "script",
-                    "template",
-                    "style"
-                ]
-            }
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+        "@typescript-eslint/no-unused-vars": "off",
+        "no-console": "off",
+        "vue/multi-word-component-names": "off",
+        "vue/component-tags-order": ["error", {
+          "order": ["script", "template", "style"]
+        }],
+        "vue/padding-line-between-blocks": ["error"],
+        "tailwindcss/no-custom-classname": [
+          "error",
+          {
+            "callees": ["clsx", "twMerge"],
+            "whitelist": ["^.*_.*$"]
+          }
         ],
-        "vue/multi-word-component-names": false
+        "vue/attribute-hyphenation": "off",
+        "vue/html-self-closing": [
+          "error",
+          {
+            "html": {
+              "void": "always",
+              "normal": "always",
+              "component": "always"
+            },
+            "svg": "always",
+            "math": "always"
+          }
+        ],
+        "vue/v-on-event-hyphenation": "off",
+        "vue/no-mutating-props": "off",
+        "consistent-return": "off",
+        "vue/require-explicit-emits": "off",
+        "no-param-reassign": "off",
+        "import/prefer-default-export": "off",
+        "vue/no-use-v-if-with-v-for": "off",
+        "tailwindcss/no-unnecessary-arbitrary-value": "off"
+      }
     }
+  ]
 }

@@ -1,11 +1,13 @@
 <script setup lang="ts">
-    import Button from "./Button.vue";
+  import Button from './Button.vue';
 </script>
 
 <template>
-    <Button class="w-[20px] hover_opacity h-[20px] md:w-[25px] md:h-[25px] xl:w-[30px] relative xl:h-[30px]">
-        <span class="block w-[100%] h-[2px] bg-gray-600 rounded-[24px] absolute rotate-45"></span>
-        <span class="block w-[100%] h-[2px] bg-gray-600 rounded-[24px] absolute -rotate-45"></span>
-    </Button>
+  <Button
+    class="hover_opacity relative h-[20px] w-[20px] md:h-[25px] md:w-[25px] xl:h-[30px] xl:w-[30px]"
+  >
+    <span class="absolute block h-[2px] w-[100%] rotate-45 rounded-[24px] bg-gray-600"></span>
+    <span class="absolute block h-[2px] w-[100%] -rotate-45 rounded-[24px] bg-gray-600"></span>
+  </Button>
 </template>
 <style scoped></style>

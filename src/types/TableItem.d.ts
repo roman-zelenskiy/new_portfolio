@@ -1,4 +1,4 @@
-declare interface TableItemTd {
+declare interface TableItem {
     title: string;
     content: any;
     type: "title" | "text" | "image" | "link" | "actions" | "children" | "arrayStatuses";
