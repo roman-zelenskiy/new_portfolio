@@ -41,7 +41,7 @@
   <div
     v-for="td in item"
     :key="td.content"
-    class="whitespace-nowrap px-[10px] py-4 align-middle text-sm font-normal text-gray-500 dark:text-gray-400"
+    class="whitespace-nowrap self-center px-[10px] py-4 align-middle text-sm font-normal text-gray-500 dark:text-gray-400"
   >
     <img
       v-if="td.type === 'image'"

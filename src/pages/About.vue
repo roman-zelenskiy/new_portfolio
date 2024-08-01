@@ -3,26 +3,28 @@
   import BtnDownloadCv from '../components/common/BtnDownloadCv.vue';
   import ContactItem from '../components/ContactItem.vue';
   import EducationList from '../components/EducationList.vue';
-  import { computed, inject, Ref } from 'vue';
+  import { computed } from 'vue';
+  import { useDataBase } from '../utils';
 
-  const userData: Ref<any> | undefined | any = inject('userData');
+  const userData = useDataBase();
+
   const contactList = computed(() => [
     {
-      title: userData?.value?.phone_number,
-      href: `tel: ${userData?.value?.phone_number}`,
+      title: userData?.phone_number,
+      href: `tel: ${userData?.phone_number}`,
       icon: PhoneIcon,
     },
     {
-      title: userData?.value?.age,
+      title: userData?.age,
       icon: UserIcon,
     },
     {
-      title: userData?.value?.email,
-      href: `mailto: ${userData?.value?.email}`,
+      title: userData?.email,
+      href: `mailto: ${userData?.email}`,
       icon: MailIcon,
     },
     {
-      title: `${userData?.value?.county}, ${userData?.value?.city}`,
+      title: `${userData?.county}, ${userData?.city}`,
       icon: PlaceIcon,
     },
   ]);
@@ -48,12 +50,14 @@
         </ul>
         <div class="skills">
           <h5 class="italic_text">Skills</h5>
-          <p class="skills_list">{{ userData?.skills }}</p>
+          <p class="skills_list">{{ userData?.skills.join(', ') }}</p>
         </div>
         <div class="languages">
           <h5 class="italic_text">Languages</h5>
           <ul class="languages_list">
-            <li v-for="language in userData?.languages">{{ language }}</li>
+            <li v-for="language in userData?.languages">
+              {{ language?.lang }}: {{ language?.level }}
+            </li>
           </ul>
         </div>
       </div>

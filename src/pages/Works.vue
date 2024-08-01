@@ -34,9 +34,8 @@
             @click="onClickWork(project.typeShow === 'images', project.images)"
           ></Button>
           <div class="content">
-            <p class="type_project">{{ project.type }}</p>
             <h4 class="name_project">{{ project.title }}</h4>
-            <p class="technologies">Technologies: {{ project.technologies }}</p>
+            <p class="technologies">Technologies: {{ project.technologies.join(', ') }}</p>
             <div class="icon">
               <span class="btn">
                 <ArrowIcon></ArrowIcon>

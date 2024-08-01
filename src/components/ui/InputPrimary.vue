@@ -15,7 +15,7 @@
   <input
     :value="modelValue"
     @input="handleInput"
-    class="block w-full border border-black bg-transparent p-4 text-base text-gray-900 focus:border-black focus:ring-0"
+    class="input_primary"
   />
 </template>
 

@@ -15,7 +15,7 @@ export const handler = async function(event, context) {
   }
 
   const { newUserData } = JSON.parse(event.body);
-
+  
   try {
     const repoOwner = "roman-zelenskiy";
     const repoName = "new_portfolio";

@@ -2,14 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer {
-    * {
-        line-height: 100%;
-    }
-}
-
 @layer utilities {
-    .hover_opacity {
-        @apply duration-hover hover:opacity-hover;
-    }
+  * {
+    line-height: 100%;
+  }
+  .hover_opacity {
+    @apply duration-hover hover:opacity-hover;
+  }
+
+  .input_primary {
+    @apply placeholder:text-placeholder-color block w-full border border-black bg-transparent p-4 text-base text-gray-900 focus:border-black focus:ring-0;
+  }
 }

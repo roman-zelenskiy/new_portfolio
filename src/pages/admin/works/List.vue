@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import ModalSuccess from '../../../components/common/ModalSuccess.vue';
   import Table from '../../../components/ui/Table.vue';
+  import PrimaryButton from '../../../components/ui/PrimaryButton.vue';
   import { useWorksStore } from '../../../stores';
   import { computed, ref } from 'vue';
 
@@ -38,11 +39,6 @@
         type: 'title',
       },
       {
-        title: 'TYPE',
-        content: el?.type,
-        type: 'text',
-      },
-      {
         title: 'ACTIONS',
         content: '',
 
@@ -70,8 +66,19 @@
 </script>
 
 <template>
-  <ModalSuccess v-model="isSuccessUpdateModal"></ModalSuccess>
-  <Table class="mt-[30px]" :items="itemsRequests" />
+  <div>
+    <ModalSuccess v-model="isSuccessUpdateModal"></ModalSuccess>
+
+    <div>
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Works</h1>
+        <PrimaryButton :typeElement="'router-link'" :to="{ name: 'CreateWork' }"
+          >New Work</PrimaryButton
+        >
+      </div>
+      <Table class="mt-[30px]" :items="itemsRequests" />
+    </div>
+  </div>
 </template>
 
 <style scoped></style>
