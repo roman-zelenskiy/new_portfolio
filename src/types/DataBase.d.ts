@@ -28,5 +28,17 @@ declare interface DataBase {
       certificate: string;
     }[]
   };
+  social_networks: {
+    title: string;
+    path: string;
+    icon: string;
+  }[];
+  experience: {
+    position: string;
+    organization: string;
+    work_period: string;
+    description: string;
+    technologies: DataBase['skills'];
+  }[]
   works: Work[];
 }

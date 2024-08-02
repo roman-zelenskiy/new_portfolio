@@ -19,7 +19,7 @@
     </button>
     <div class="description_box">
       <div class="text">
-        <p class="technologies">Technologies: {{ experience.technologies }}</p>
+        <p class="technologies">Technologies: {{ experience.technologies.join(', ') }}</p>
         <p class="description">{{ experience.description }}</p>
         <a v-if="experience.link" :href="experience.link" class="link">{{ experience.link }}</a>
       </div>
