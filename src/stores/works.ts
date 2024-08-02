@@ -13,7 +13,7 @@ type ProjectPayload = {
   typeShow: Work['typeShow'];
 }
 
-const VITE_STORAGE_DIRECTORY = import.meta.env.VITE_STORAGE_DIRECTORY.replace('public', '');
+const VITE_STORAGE_DIRECTORY = import.meta.env.VITE_STORAGE_DIRECTORY?.replace('public', '') || '';
 
 
 export const useWorksStore = defineStore('works', () => {
