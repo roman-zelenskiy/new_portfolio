@@ -37,12 +37,12 @@ export const handler = async function(event, context) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "File updated successfully", status: 1 })
+      body: JSON.stringify({ message: "File updated successfully", status: 1, success: true })
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Error updating file", status: 0 })
+      body: JSON.stringify({ error: "Error updating file", status: 0, success: false })
     };
   }
 };

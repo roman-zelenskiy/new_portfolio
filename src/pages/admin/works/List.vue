@@ -66,7 +66,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="w-full">
     <ModalSuccess v-model="isSuccessUpdateModal"></ModalSuccess>
 
     <div>

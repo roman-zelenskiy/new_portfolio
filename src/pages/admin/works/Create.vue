@@ -10,12 +10,18 @@
   import SelectPrimary from '../../../components/ui/SelectPrimary.vue';
   import Button from '../../../components/ui/Button.vue';
   import PrimaryButton from '../../../components/ui/PrimaryButton.vue';
+  import FileUploader from '../../../components/common/FileUploader.vue';
+  import ModalSuccess from '../../../components/common/ModalSuccess.vue';
+  import ModalDanger from '../../../components/common/ModalDanger.vue';
 
   const { skills } = useDataBase();
   const workStore = useWorksStore();
+  const isModalSuccess = ref(false);
+  const isModalDanger = ref(false);
+  const errorMessage = ref('');
 
   type Inputs = {
-    typeShow: 'link' | 'images' | '';
+    typeShow: Work['typeShow'];
     title: string;
     link: string;
     mainImg: any;
@@ -24,7 +30,7 @@
   };
 
   const inputs = ref<Inputs>({
-    typeShow: '',
+    typeShow: 'link',
     title: '',
     link: '',
     mainImg: '',
@@ -45,8 +51,22 @@
     }
   };
 
-  const createProject = () => {
-    workStore.createProject({ mainImage: inputs.value.mainImg });
+  const createProject = async () => {
+    const { success, error } = await workStore.createProject({
+      mainImage: inputs.value.mainImg,
+      title: inputs.value.title,
+      link: inputs.value.link,
+      technologies: inputs.value.technologies,
+      images: inputs.value.images,
+      typeShow: inputs.value.typeShow,
+    });
+
+    if (!success) {
+      errorMessage.value = error;
+      isModalDanger.value = true;
+    } else {
+      isModalSuccess.value = true;
+    }
   };
 
   watch(
@@ -60,6 +80,9 @@
 
 <template>
   <div class="grid w-full grid-cols-1 px-4 pt-6 dark:bg-gray-900 xl:grid-cols-3 xl:gap-4">
+    <ModalSuccess v-model="isModalSuccess"></ModalSuccess>
+    <ModalDanger :message="errorMessage" v-model="isModalDanger"></ModalDanger>
+
     <div class="col-span-full mb-4 xl:mb-2">
       <Button @click="$router.go(-1)" class="hover_opacity mb-[15px] flex items-center gap-[7px]">
         <Icon class="rotate-[180deg]" icon="@custom:rz:arrow" width="24" height="24" />
@@ -137,79 +160,9 @@
                 required=""
               />
             </div>
-            <!-- <div class="col-span-6 sm:col-span-3">
-              <label for="city" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >City</label
-              >
-              <input
-                type="text"
-                name="city"
-                id="city"
-                class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                placeholder="e.g. San Francisco"
-                required=""
-              />
-            </div> -->
-            <!-- <div class="col-span-6 sm:col-span-3">
-              <label
-                for="address"
-                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >Address</label
-              >
-              <input
-                type="text"
-                name="address"
-                id="address"
-                class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                placeholder="e.g. California"
-                required=""
-              />
+            <div v-if="inputs.typeShow === 'images'" class="col-span-full sm:col-span-full">
+              <FileUploader label="Images" v-model:selectedFiles="inputs.images"></FileUploader>
             </div>
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="email"
-                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >Email</label
-              >
-              <input
-                type="email"
-                name="email"
-                id="email"
-                class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                placeholder="example@company.com"
-                required=""
-              />
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="phone-number"
-                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >Phone Number</label
-              >
-              <input
-                type="number"
-                name="phone-number"
-                id="phone-number"
-                class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                placeholder="e.g. +(12)3456 789"
-                required=""
-              />
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="birthday"
-                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >Birthday</label
-              >
-              <input
-                type="number"
-                name="birthday"
-                id="birthday"
-                class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                placeholder="15/08/1990"
-                required=""
-              />
-            </div> -->
           </div>
         </form>
       </div>
