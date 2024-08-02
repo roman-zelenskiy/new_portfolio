@@ -30,7 +30,7 @@
             class="link"
             :typeElement="project.typeShow === 'link' ? 'link' : 'button'"
             :target="project.typeShow === 'link' ? 'blank' : ''"
-            :href="project.typeShow === 'link' ? project.link : ''"
+            :href="project.typeShow && project?.typeShow === 'link' ? project?.link : ''"
             @click="onClickWork(project.typeShow === 'images', project.images)"
           ></Button>
           <div class="content">

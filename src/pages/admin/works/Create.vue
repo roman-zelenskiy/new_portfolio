@@ -145,7 +145,7 @@
                 required=""
               />
             </div>
-            <div v-if="inputs.typeShow === 'link'" class="col-span-6 sm:col-span-3">
+            <div  class="col-span-6 sm:col-span-3">
               <label
                 for="last-name"
                 class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -160,7 +160,7 @@
                 required=""
               />
             </div>
-            <div v-if="inputs.typeShow === 'images'" class="col-span-full sm:col-span-full">
+            <div  class="col-span-full sm:col-span-full">
               <FileUploader label="Images" v-model:selectedFiles="inputs.images"></FileUploader>
             </div>
           </div>
