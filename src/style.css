@@ -6,11 +6,47 @@
   * {
     line-height: 100%;
   }
+
+  [type='text']:focus,
+  [type='email']:focus,
+  [type='url']:focus,
+  [type='password']:focus,
+  [type='number']:focus,
+  [type='date']:focus,
+  [type='datetime-local']:focus,
+  [type='month']:focus,
+  [type='search']:focus,
+  [type='tel']:focus,
+  [type='time']:focus,
+  [type='week']:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    --tw-ring-shadow: none;
+    border-color: transparent;
+  }
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    border-width: 0px;
+  }
   .hover_opacity {
     @apply duration-hover hover:opacity-hover;
   }
 
   .input_primary {
-    @apply placeholder:text-placeholder-color block w-full border border-black bg-transparent p-4 text-base text-gray-900 focus:border-black focus:ring-0;
+    @apply block w-full border border-black bg-transparent p-4 text-base text-gray-900 placeholder:text-placeholder-color focus:border-black focus:ring-0;
   }
 }

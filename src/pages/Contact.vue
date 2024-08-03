@@ -58,9 +58,9 @@
       <form action="#" @submit.prevent="onSendForm()">
         <div class="form_wrap">
           <div class="input_box">
-            <input class="name" type="text" v-model="name" placeholder="Name" />
-            <input class="email" type="email" v-model="email" placeholder="Email" />
-            <textarea v-model="message" class="message" placeholder="Message"></textarea>
+            <input class="name" required type="text" v-model="name" placeholder="Name" />
+            <input class="email" required type="email" v-model="email" placeholder="Email" />
+            <textarea v-model="message" required class="message" placeholder="Message"></textarea>
           </div>
           <PrimaryButton class="send_btn"> Submit now </PrimaryButton>
         </div>
