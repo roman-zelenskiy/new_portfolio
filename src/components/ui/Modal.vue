@@ -21,7 +21,12 @@
 </script>
 
 <template>
-  <fwb-modal :size="ui?.size" class="custom-modal" v-if="modelValue" @close="closeModal">
+  <fwb-modal
+    :size="ui?.size"
+    class="custom-modal animate-fade animate-duration-500"
+    v-show="modelValue"
+    @close="closeModal"
+  >
     <template #body>
       <div class="relative p-[20px] md:p-[25px] xl:p-[30px]">
         <ButtonClose

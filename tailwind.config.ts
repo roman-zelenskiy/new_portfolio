@@ -41,5 +41,5 @@ export default <Partial<Config>>{
       },
     },
   },
-  plugins: [typography, forms, aspectRatio, require('flowbite/plugin')],
+  plugins: [typography, forms, aspectRatio, require('flowbite/plugin'), require('tailwindcss-animated')],
 };

@@ -1,5 +1,10 @@
 <script setup lang="ts">
+  import { useToggle } from '@vueuse/core';
+  const [isModalSuccess, toggleModalSuccess] = useToggle();
+  const [isModalDanger, toggleModalDanger] = useToggle();
   import PrimaryButton from '../components/ui/PrimaryButton.vue';
+  import ModalSuccess from '../components/common/ModalSuccess.vue';
+  import ModalDanger from '../components/common/ModalDanger.vue';
   import { computed, inject, ref } from 'vue';
 
   const userData: any = inject('userData');
@@ -7,6 +12,8 @@
   const name = ref<string>('');
   const email = ref<string>('');
   const message = ref<string>('');
+
+  const messageToUser = ref('');
 
   const TOKEN = computed(() => import.meta.env.VITE_TELEGRAM_BOT_TOKEN);
   const messageToTelegram = computed(
@@ -23,15 +30,25 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ chat_id: CHAT_ID, parse_mode: 'html', text: messageToTelegram.value }),
-    }).then(() => {
-      name.value = '';
-      email.value = '';
-      message.value = '';
+    }).then((response: any) => {
+      if (response.ok) {
+        name.value = '';
+        email.value = '';
+        message.value = '';
+
+        messageToUser.value = 'Thank you! Message sent!';
+        toggleModalSuccess(true);
+      } else {
+        messageToUser.value = 'Try again';
+        toggleModalDanger(true);
+      }
     });
   };
 </script>
 
 <template>
+  <ModalSuccess v-model="isModalSuccess" :message="messageToUser"></ModalSuccess>
+  <ModalDanger v-model="isModalDanger" :message="messageToUser"></ModalDanger>
   <div class="contact_page">
     <div class="content_box">
       <h5 class="page_title">Contact</h5>
