@@ -24,7 +24,7 @@
   <fwb-modal
     :size="ui?.size"
     class="custom-modal animate-fade animate-duration-500"
-    v-show="modelValue"
+    v-if="modelValue"
     @close="closeModal"
   >
     <template #body>
