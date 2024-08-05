@@ -1,26 +1,25 @@
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
-  import { useDataBase } from '../../../utils';
-  import { useWorksStore } from '../../../stores';
+  import { ref } from 'vue';
+  import { useDataBase } from '../../utils';
 
-  import CreateProject from '../../../components/layout/CreateProject.vue';
+  import InputPicture from '../ui/InputPicture.vue';
+  import InputPrimary from '../ui/InputPrimary.vue';
+  import CheckboxPrimary from '../ui/CheckboxPrimary.vue';
 
-  // import InputPicture from '../../../components/ui/InputPicture.vue';
-  // import InputPrimary from '../../../components/ui/InputPrimary.vue';
-  // import CheckboxPrimary from '../../../components/ui/CheckboxPrimary.vue';
+  import SelectPrimary from '../ui/SelectPrimary.vue';
+  import Button from '../ui/Button.vue';
+  import PrimaryButton from '../ui/PrimaryButton.vue';
+  import FileUploader from '../common/FileUploader.vue';
+  import ModalSuccess from '../common/ModalSuccess.vue';
+  import ModalDanger from '../common/ModalDanger.vue';
 
-  // import SelectPrimary from '../../../components/ui/SelectPrimary.vue';
-  // import Button from '../../../components/ui/Button.vue';
-  // import PrimaryButton from '../../../components/ui/PrimaryButton.vue';
-  // import FileUploader from '../../../components/common/FileUploader.vue';
-  // import ModalSuccess from '../../../components/common/ModalSuccess.vue';
-  // import ModalDanger from '../../../components/common/ModalDanger.vue';
+  defineProps<{
+    actionLabel: 'Create Project' | 'Update Project';
+  }>();
 
-  // const { skills } = useDataBase();
-  const workStore = useWorksStore();
+  const { skills } = useDataBase();
   const isModalSuccess = ref(false);
   const isModalDanger = ref(false);
-
   const errorMessage = ref('');
 
   type Inputs = {
@@ -41,36 +40,24 @@
     technologies: [],
   });
 
-  const createProject = async () => {
-    const { success, error } = await workStore.createProject({
-      mainImage: inputs.value.mainImg,
-      title: inputs.value.title,
-      link: inputs.value.link,
-      technologies: inputs.value.technologies,
-      images: inputs.value.images,
-      typeShow: inputs.value.typeShow,
-    });
+  const emits = defineEmits(['action']);
 
-    if (!success) {
-      errorMessage.value = error;
-      isModalDanger.value = true;
+  const typeShowOptions = [
+    { value: 'link', title: 'Link' },
+    { value: 'images', title: 'Images' },
+  ];
+
+  const onChangeTechnologies = (item: string) => {
+    if (!!inputs.value.technologies.find((el) => el === item)) {
+      inputs.value.technologies = inputs.value.technologies.filter((el) => el !== item);
     } else {
-      isModalSuccess.value = true;
+      inputs.value.technologies.push(item);
     }
   };
-
-  watch(
-    inputs,
-    () => {
-      console.log(inputs.value);
-    },
-    { deep: true }
-  );
 </script>
 
 <template>
-  <CreateProject></CreateProject>
-  <!-- <div class="grid w-full grid-cols-1 px-4 pt-6 dark:bg-gray-900 xl:grid-cols-3 xl:gap-4">
+  <div class="grid w-full grid-cols-1 px-4 pt-6 dark:bg-gray-900 xl:grid-cols-3 xl:gap-4">
     <ModalSuccess v-model="isModalSuccess"></ModalSuccess>
     <ModalDanger :message="errorMessage" v-model="isModalDanger"></ModalDanger>
 
@@ -79,7 +66,9 @@
         <Icon class="rotate-[180deg]" icon="@custom:rz:arrow" width="24" height="24" />
         <span>Back</span>
       </Button>
-      <h1 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Add project</h1>
+      <h1 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+        {{ actionLabel }}
+      </h1>
     </div>
     <div class="col-span-full xl:col-auto">
       <InputPicture v-model="inputs.mainImg"></InputPicture>
@@ -136,7 +125,7 @@
                 required=""
               />
             </div>
-            <div  class="col-span-6 sm:col-span-3">
+            <div class="col-span-6 sm:col-span-3">
               <label
                 for="last-name"
                 class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -151,7 +140,7 @@
                 required=""
               />
             </div>
-            <div  class="col-span-full sm:col-span-full">
+            <div class="col-span-full sm:col-span-full">
               <FileUploader label="Images" v-model:selectedFiles="inputs.images"></FileUploader>
             </div>
           </div>
@@ -160,9 +149,9 @@
     </div>
 
     <div class="col-span-full mt-[15px] flex justify-center md:mt-[20px]">
-      <PrimaryButton @click="createProject">Create</PrimaryButton>
+      <PrimaryButton @click="emits('action')">{{ actionLabel }}</PrimaryButton>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped></style>
