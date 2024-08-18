@@ -39,6 +39,12 @@
       </div>
       <BtnDownloadCv></BtnDownloadCv>
     </div>
+    <div>
+      <p
+        class="mt-[15px] md:mt-[20px] leading-5 font-medium text-[16px] max-w-[900px] xl:text-[18px]"
+        v-html="userData?.about_me"
+      ></p>
+    </div>
     <div class="content_box">
       <div class="left_box">
         <EducationList :education="userData?.education"></EducationList>
@@ -46,7 +52,10 @@
       </div>
       <div class="right_box">
         <ul class="contact_list">
-          <ContactItem v-for="item in contactList" :item="item"></ContactItem>
+          <ContactItem
+            v-for="item in contactList"
+            :item="item"
+          ></ContactItem>
         </ul>
         <div class="skills">
           <h5 class="italic_text">Skills</h5>

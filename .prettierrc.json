@@ -1,12 +1,19 @@
 {
-  "endOfLine": "crlf",
+  "endOfLine": "lf",
   "printWidth": 100,
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5",
   "vueIndentScriptAndStyle": true,
+  "singleAttributePerLine": true,
   "plugins": [
-    "prettier-plugin-tailwindcss"
-  ]
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-organize-attributes"
+  ],
+  "organizeImportsSkipDestructiveCodeActions": true,
+  "bracketSameLine": false,
+  "htmlWhitespaceSensitivity": "ignore",
+  "attributeGroups": ["^class$", "^(id|name)$", "$DEFAULT", "^aria-"]
 }

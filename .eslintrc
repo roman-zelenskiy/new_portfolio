@@ -20,7 +20,7 @@
           "error",
           {
             "singleQuote": true,
-            "endOfLine": "crlf"
+            "endOfLine": "lf"
           }
         ],
         "@typescript-eslint/comma-dangle": "off",

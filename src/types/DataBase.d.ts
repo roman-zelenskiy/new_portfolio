@@ -5,10 +5,11 @@ declare interface DataBase {
   county: string;
   city: string;
   skills: string[];
+  about_me: string;
   languages: {
     lang: string;
     level: string;
-  }[]
+  }[];
   education: {
     title: string;
     list: {
@@ -16,7 +17,7 @@ declare interface DataBase {
       specialty: string;
       level: string;
       study_period: string;
-    }[]
+    }[];
   };
   courses: {
     title: string;
@@ -26,7 +27,7 @@ declare interface DataBase {
       level: string;
       study_period: string;
       certificate: string;
-    }[]
+    }[];
   };
   social_networks: {
     title: string;
@@ -39,6 +40,6 @@ declare interface DataBase {
     work_period: string;
     description: string;
     technologies: DataBase['skills'];
-  }[]
+  }[];
   works: Work[];
 }

@@ -1,10 +1,10 @@
 <script setup lang="ts">
+  import { computed, inject } from 'vue';
+  import { useRouter } from 'vue-router';
   import { MailIcon, PhoneIcon } from '../assets/img/svg/index.ts';
   import ContactItem from '../components/ContactItem.vue';
   import MainImage from '../components/MainImage.vue';
   import PrimaryButton from '../components/ui/PrimaryButton.vue';
-  import { computed, inject } from 'vue';
-  import { useRouter } from 'vue-router';
 
   const userData: any = inject('userData');
   const router = useRouter();
@@ -32,17 +32,23 @@
       <div class="name_photo">
         <h3 class="title_home">
           <span class="title_home_icon"></span>
-          My name is <span class="bold">{{ userData?.full_name }}...</span>
+          My name is
+          <span class="bold">{{ userData?.full_name }}...</span>
         </h3>
       </div>
       <p class="specialty">
-        <span class="bold_italic">{{ userData?.specialty }}</span> based in
+        <span class="bold_italic">{{ userData?.specialty }}</span>
+        based in
         <span class="bold_italic">{{ userData?.city }}</span>
       </p>
-      <PrimaryButton @click="onCGotoContact()"> Let’s talk with me </PrimaryButton>
+      <PrimaryButton @click="onCGotoContact()">Let’s talk with me</PrimaryButton>
 
       <ul class="contact_box">
-        <ContactItem v-for="item in contactList" :key="item.title" :item="item"></ContactItem>
+        <ContactItem
+          v-for="item in contactList"
+          :key="item.title"
+          :item="item"
+        ></ContactItem>
       </ul>
     </div>
     <div class="photo_box">
