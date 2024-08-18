@@ -72,11 +72,17 @@
     <div>
       <div class="flex items-center justify-between">
         <h1 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Works</h1>
-        <PrimaryButton :typeElement="'router-link'" :to="{ name: 'CreateWork' }"
-          >New Work</PrimaryButton
+        <PrimaryButton
+          :typeElement="'router-link'"
+          :to="{ name: 'CreateWork' }"
         >
+          New Work
+        </PrimaryButton>
       </div>
-      <Table class="mt-[30px]" :items="itemsRequests" />
+      <Table
+        class="mt-[30px]"
+        :items="itemsRequests"
+      />
     </div>
   </div>
 </template>
