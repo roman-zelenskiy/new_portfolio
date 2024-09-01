@@ -44,11 +44,7 @@
       <PrimaryButton @click="onCGotoContact()">Let’s talk with me</PrimaryButton>
 
       <ul class="contact_box">
-        <ContactItem
-          v-for="item in contactList"
-          :key="item.title"
-          :item="item"
-        ></ContactItem>
+        <ContactItem v-for="item in contactList" :key="item.title" :item="item"></ContactItem>
       </ul>
     </div>
     <div class="photo_box">

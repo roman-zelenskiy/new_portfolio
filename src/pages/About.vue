@@ -1,9 +1,9 @@
 <script setup lang="ts">
+  import { computed } from 'vue';
   import { MailIcon, PhoneIcon, PlaceIcon, UserIcon } from '../assets/img/svg';
   import BtnDownloadCv from '../components/common/BtnDownloadCv.vue';
   import ContactItem from '../components/ContactItem.vue';
   import EducationList from '../components/EducationList.vue';
-  import { computed } from 'vue';
   import { useDataBase } from '../utils';
 
   const userData = useDataBase();
@@ -12,21 +12,21 @@
     {
       title: userData?.phone_number,
       href: `tel: ${userData?.phone_number}`,
-      icon: PhoneIcon,
+      icon: PhoneIcon
     },
     {
       title: userData?.age,
-      icon: UserIcon,
+      icon: UserIcon
     },
     {
       title: userData?.email,
       href: `mailto: ${userData?.email}`,
-      icon: MailIcon,
+      icon: MailIcon
     },
     {
       title: `${userData?.county}, ${userData?.city}`,
-      icon: PlaceIcon,
-    },
+      icon: PlaceIcon
+    }
   ]);
 </script>
 
@@ -37,25 +37,22 @@
         <p class="title_page">Nice to meet you!</p>
         <p class="big_text">Welcome to...</p>
       </div>
-      <BtnDownloadCv></BtnDownloadCv>
+      <BtnDownloadCv />
     </div>
     <div>
       <p
-        class="mt-[15px] md:mt-[20px] leading-5 font-medium text-[16px] max-w-[900px] xl:text-[18px]"
+        class="mt-[15px] max-w-[900px] text-[16px] font-medium leading-5 md:mt-[20px] xl:text-[18px]"
         v-html="userData?.about_me"
       ></p>
     </div>
     <div class="content_box">
       <div class="left_box">
-        <EducationList :education="userData?.education"></EducationList>
-        <EducationList :education="userData?.courses"></EducationList>
+        <EducationList :education="userData?.education" />
+        <EducationList :education="userData?.courses" />
       </div>
       <div class="right_box">
         <ul class="contact_list">
-          <ContactItem
-            v-for="item in contactList"
-            :item="item"
-          ></ContactItem>
+          <ContactItem v-for="item in contactList" :item="item" />
         </ul>
         <div class="skills">
           <h5 class="italic_text">Skills</h5>

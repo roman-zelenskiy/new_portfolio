@@ -5,15 +5,10 @@
 
   const isVisible = ref<boolean>(false);
 </script>
+
 <template>
-  <li
-    class="experience_item"
-    :class="{ active: isVisible }"
-  >
-    <button
-      class="btn_open"
-      @click="isVisible = !isVisible"
-    >
+  <li class="experience_item" :class="{ active: isVisible }">
+    <button class="btn_open" @click="isVisible = !isVisible">
       <span class="content">
         <span class="position">{{ experience.position }}</span>
         <span class="information">
@@ -26,15 +21,8 @@
     <div class="description_box">
       <div class="text">
         <p class="technologies">Technologies: {{ experience.technologies.join(', ') }}</p>
-        <p
-          class="description"
-          v-html="experience.description"
-        ></p>
-        <a
-          class="link"
-          v-if="experience.link"
-          :href="experience.link"
-        >
+        <p class="description" v-html="experience.description"></p>
+        <a v-if="experience.link" class="link" :href="experience.link">
           {{ experience.link }}
         </a>
       </div>
