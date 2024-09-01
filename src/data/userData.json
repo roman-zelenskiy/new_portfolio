@@ -7,7 +7,7 @@
   "email": "romazelenskiy2000@gmail.com",
   "phone_number": "+380683196434",
   "specialty": "Frontend Developer",
-  "main_photo": "./img/main_photo_second.JPG",
+  "main_photo": "./img/main_photo_second.webp",
   "age": "24 years",
   "about_me": "I am a frontend developer with experience in building user interfaces using Vue.js, Nuxt, and TypeScript. I have worked with modern technologies such as Tailwind CSS, SCSS, and Git. I am constantly improving my skills and have a strong interest in interface optimization and creating user-friendly, efficient solutions. I am focused on teamwork and delivering high-quality results.",
   "skills": [
