@@ -12,20 +12,13 @@
     typeShow: 'link',
     title: '',
     link: '',
-    mainImg: '',
+    img: '',
     images: [],
     technologies: []
   });
 
   const createProject = async () => {
-    const { success, error } = await workStore.createProject({
-      mainImage: inputs.value.mainImg,
-      title: inputs.value.title,
-      link: inputs.value.link,
-      technologies: inputs.value.technologies,
-      images: inputs.value.images,
-      typeShow: inputs.value.typeShow
-    });
+    const { success, error } = await workStore.createProject(inputs.value);
 
     if (!success) {
       errorMessage.value = error;

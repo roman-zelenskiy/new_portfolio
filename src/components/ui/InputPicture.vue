@@ -1,8 +1,10 @@
 <script setup lang="ts">
+  import { watchDeep } from '@vueuse/core';
   import { ref } from 'vue';
 
-  defineProps<{
+  const props = defineProps<{
     modelValue: null | File;
+    payloadPath?: string;
   }>();
 
   const emit = defineEmits(['update:modelValue']);
@@ -23,10 +25,25 @@
     }
   };
 
+  const getPath = () => {
+    if (props.payloadPath) {
+      currentImagePath.value = props.payloadPath;
+    }
+  };
+
   const resetImage = () => {
     emit('update:modelValue', null);
     currentImagePath.value = '';
   };
+
+  watchDeep(
+    () => props.payloadPath,
+    () => {
+      getPath();
+    }
+  );
+
+  getPath();
 </script>
 
 <template>
@@ -37,21 +54,21 @@
       class="items-center justify-between sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4"
     >
       <div
-        class="relative mb-4 flex h-28 w-28 items-center justify-center overflow-hidden rounded-lg border-[2px] border-gray-400 bg-gray-300 sm:mb-0 xl:mb-4 2xl:mb-0"
+        class="relative mb-4 flex size-28 items-center justify-center overflow-hidden rounded-lg border-[2px] border-gray-400 bg-gray-300 sm:mb-0 xl:mb-4 2xl:mb-0"
       >
         <img
           v-if="currentImagePath"
-          class="h-full w-full object-cover"
+          class="size-full object-cover"
           :src="currentImagePath"
           alt=""
         />
         <input
-          class="absolute left-0 top-0 z-10 h-full w-full cursor-pointer opacity-0"
+          class="absolute left-0 top-0 z-10 size-full cursor-pointer opacity-0"
           type="file"
           @change="handleChangeFile"
         />
         <span class="block h-[3px] w-[40%] rotate-[90deg] rounded-[25px] bg-white"></span>
-        <div class="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+        <div class="absolute left-0 top-0 flex size-full items-center justify-center">
           <span class="block h-[3px] w-[40%] rounded-[25px] bg-white"></span>
         </div>
       </div>

@@ -15,11 +15,11 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    fileNameKey: 'filename',
+    fileNameKey: 'filename'
   });
 
   const id = computed(() => {
-    return props.idInput ? props.idInput + 'dropzone-file' : 'dropzone-file';
+    return props.idInput ? `${props.idInput}dropzone-file` : 'dropzone-file';
   });
 
   const emit = defineEmits(['update:selectedFiles']);
@@ -29,7 +29,7 @@
   const showImages = ref<string[]>([]);
 
   const handleFileUpload = (event: any) => {
-    const files = event.target.files;
+    const { files } = event.target;
     if (files.length > 0) {
       for (let i = 0; i < files.length; i++) {
         selectedFiles.value.push(files[i]);
@@ -108,13 +108,13 @@
     <div v-if="!readOnly" class="flex w-full items-center justify-center">
       <label
         :for="id"
-        class="dark:hover:bg-bray-800 flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+        class="flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
         @dragover="handleDragOver"
         @drop="handleDrop"
       >
         <div class="flex flex-col items-center justify-center pb-6 pt-5">
           <svg
-            class="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400"
+            class="mb-4 size-8 text-gray-500 dark:text-gray-400"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -133,7 +133,7 @@
             or drag and drop
           </p>
         </div>
-        <input @change="handleFileUpload" :id="id" type="file" class="hidden" multiple />
+        <input :id="id" type="file" class="hidden" multiple @change="handleFileUpload" />
       </label>
     </div>
     <div v-if="showImages.length > 0" class="mt-4">
@@ -151,12 +151,12 @@
           ></button> -->
           <button
             v-if="!readOnly"
-            @click="removeFile(index)"
             type="button"
             class="absolute right-[10px] top-[10px] z-20 self-end text-red-600 hover:text-red-800 focus:outline-none"
+            @click="removeFile(index)"
           >
             <svg
-              class="h-6 w-6"
+              class="size-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -167,11 +167,11 @@
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M6 18L18 6M6 6l12 12"
-              ></path>
+              />
             </svg>
           </button>
-          <div class="flex w-full h-full flex-col items-center justify-between">
-            <img class="h-full flex-1 object-cover w-full" :src="file" alt="" />
+          <div class="flex size-full flex-col items-center justify-between">
+            <img class="size-full flex-1 object-cover" :src="file" alt="" />
             <!-- <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-[70%] w-[70%]"
@@ -199,4 +199,3 @@
     opacity: 0.8;
   }
 </style>
-

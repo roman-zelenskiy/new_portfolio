@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
   import { useRouter } from 'vue-router';
+  import { watchDeep } from '@vueuse/core';
   import { useDataBase } from '../../utils';
 
   import InputPicture from '../ui/InputPicture.vue';
@@ -34,6 +35,13 @@
     }
   });
 
+  watchDeep(
+    () => inputs.value,
+    () => {
+      console.log(inputs.value);
+    }
+  );
+
   const typeShowOptions = [
     { value: 'link', title: 'Link' },
     { value: 'images', title: 'Images' }
@@ -64,7 +72,7 @@
       <h1 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">{{ title }}</h1>
     </div>
     <div class="col-span-full xl:col-auto">
-      <InputPicture v-model="inputs.mainImg" />
+      <InputPicture v-model="inputs.img" :payloadPath="inputs.img" />
       <div
         class="mb-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 2xl:col-span-2"
       >
@@ -75,6 +83,7 @@
             v-for="(item, index) in skills"
             :key="index"
             :value="!!inputs.technologies.find((el) => el === item)"
+            :checked="!!inputs.technologies.find((el) => el === item)"
             :label="item"
             @change="onChangeTechnologies(item)"
           />

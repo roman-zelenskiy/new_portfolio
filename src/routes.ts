@@ -24,19 +24,22 @@ export const routes = [
         name: 'Home',
         path: '',
         component: Home,
-        meta: { transition: 'slide-fade' }
+        meta: { transition: 'slide-fade' },
+        props: true
       },
       {
         name: 'About',
         path: 'about',
         component: About,
-        meta: { transition: 'slide-fade' }
+        meta: { transition: 'slide-fade' },
+        props: true
       },
       {
         name: 'My Experience',
         path: 'my_experience',
         component: MyExperience,
-        meta: { transition: 'slide-fade' }
+        meta: { transition: 'slide-fade' },
+        props: true
       },
       {
         name: 'Works',
@@ -62,7 +65,7 @@ export const routes = [
     beforeEnter: () => {
       const authStore = useAuthStore();
 
-      if (!authStore.chцckAdminKey()) {
+      if (!authStore.checkAdminKey()) {
         return false;
       }
     },
@@ -89,8 +92,8 @@ export const routes = [
         props: true
       },
       {
-        path: 'works/update/:projectId',
         name: 'UpdateWork',
+        path: 'works/update/:projectId?',
         component: UpdateWorkPage,
         props: true,
         meta: { transition: 'slide-fade' }

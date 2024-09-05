@@ -56,7 +56,7 @@
           {
             content: 'Edit',
             action: () => {
-              // router.push({ name: 'UpdateWork', params: { projectId: el.id } });
+              router.push({ name: 'UpdateWork', params: { projectId: el.id } });
             }
           }
         ]

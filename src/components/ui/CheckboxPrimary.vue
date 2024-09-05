@@ -2,8 +2,8 @@
   defineProps<{
     label?: string;
     value: any;
+    checked?: boolean;
   }>();
-
 </script>
 
 <template>
@@ -11,7 +11,8 @@
     <input
       type="checkbox"
       :value="value"
-      class="checkbox h-4 w-4 rounded border-gray-300 bg-gray-100 text-black !ring-0"
+      :checked="checked"
+      class="size-4 rounded border-gray-300 bg-gray-100 text-black !ring-0"
     />
     {{ label }}</label
   >

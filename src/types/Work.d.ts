@@ -11,9 +11,9 @@ declare interface Work {
 
 declare interface CreateWork {
   typeShow: Work['typeShow'];
-  title: string;
-  link: string;
-  mainImg: any;
+  title: Work['title'];
+  link: Work['link'];
+  img: any;
   images: any[];
   technologies: string[];
 }
