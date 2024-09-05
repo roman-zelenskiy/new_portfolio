@@ -2,6 +2,7 @@ declare interface DataBase {
   phone_number: string;
   age: string;
   email: string;
+  main_photo: string;
   county: string;
   city: string;
   skills: string[];

@@ -8,9 +8,9 @@
   <div class="main_photo">
     <div class="photo_wrap">
       <img
-        class="photo size-[30vw] rounded-[50%] object-cover lg:size-[25vw]"
+        class="size-[30vw] rounded-[50%] object-cover lg:size-[25vw]"
         :src="main_photo"
-        alt=""
+        alt="photo"
       />
     </div>
   </div>
